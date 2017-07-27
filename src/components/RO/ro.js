@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { css } from 'aphrodite'
 import { styles } from './styles.css'
 
-class customer extends Component{
+class Recipent extends Component{
     constructor(props){
         super(props);
 
@@ -12,7 +12,7 @@ class customer extends Component{
     render() {
         return(
         <div className={css(styles.customers)}>
-            <h3>Regulator View: </h3>
+            <h3>Remote Operator View: </h3>
 
             <div className={css(styles.customerIdent)}>
                 
@@ -65,4 +65,4 @@ class customer extends Component{
 
 }
 
-export default customer;
+export default Recipent;

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { css } from 'aphrodite'
 import { styles } from './styles.css'
 
-class customer extends Component{
+class Donor extends Component{
     constructor(props){
         super(props);
 
@@ -29,4 +29,4 @@ class customer extends Component{
 
 }
 
-export default customer;
+export default Donor;

@@ -53,8 +53,8 @@ navBar1: {
 
 //content
 indexContent:{
-    height:'95%',
-    width: '89.5%',
+    height:'90%',
+    width: '85.5%',
     //boxShadow: '2px 2px 2px 2px #888888',
     float:'left',
     margin:'10px'
