@@ -1,6 +1,34 @@
 import React, {Component} from 'react';
 import { css } from 'aphrodite'
 import { styles } from './styles.css'
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import Plans from './plans';
+import Details from './details';
+
+var products = [{
+      id: 1,
+      name: "Plan1",
+      price: 120
+  }, {
+      id: 2,
+      name: "Plan2",
+      price: 80
+  }, {
+      id: 3,
+      name: "Plan3",
+      price: 100
+  }, {
+      id: 4,
+      name: "Plan4",
+      price: 85
+  }, {
+      id: 5,
+      name: "Plan5",
+      price: 60
+  },
+
+  
+  ]
 
 class customer extends Component{
     constructor(props){
@@ -11,6 +39,8 @@ class customer extends Component{
 
     render() {
         return(
+
+            
         <div className={css(styles.customers)}>
             <h3>Customer Eligibility View: </h3>
 
@@ -19,44 +49,10 @@ class customer extends Component{
                 Enter # to check Eligibility: <input/> <button>Check Eligibility</button><button>Track</button>
             </div>
 
-            <div className={css(styles.customerPlans)}>
-                <table>
-                    <tr>
-                        <th>Company</th>
-                        <th>Contact</th>
-                        <th>Country</th>
-                    </tr>
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                    </tr>
-                    <tr>
-                        <td>Centro comercial Moctezuma</td>
-                        <td>Francisco Chang</td>
-                        <td>Mexico</td>
-                    </tr>
-                    <tr>
-                        <td>Ernst Handel</td>
-                        <td>Roland Mendel</td>
-                        <td>Austria</td>
-                    </tr>
-                    <tr>
-                        <td>Island Trading</td>
-                        <td>Helen Bennett</td>
-                        <td>UK</td>
-                    </tr>
-                    <tr>
-                        <td>Laughing Bacchus Winecellars</td>
-                        <td>Yoshi Tannamuri</td>
-                        <td>Canada</td>
-                    </tr>
-                    <tr>
-                        <td>Magazzini Alimentari Riuniti</td>
-                        <td>Giovanni Rovelli</td>
-                        <td>Italy</td>
-                    </tr>
-                </table>
+            <div className={css(styles.customerDetails)}>
+                <Details />
+                <br/>
+                <Plans />
             </div>     
 
         </div>

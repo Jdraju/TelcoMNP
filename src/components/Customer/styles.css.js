@@ -20,8 +20,8 @@ customerIdent:{
 
 },
 
-customerPlans:{
-    boxShadow: '2px 0px 2px 2px #888888',
+customerDetails:{
+    //boxShadow: '2px 0px 2px 2px #888888',
     height:'75%',
     width:'97%',
     margin:'2%',

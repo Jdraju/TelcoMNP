@@ -31,14 +31,13 @@
     "babel-preset-stage-1": "^6.1.18",
     "lodash": "^3.10.1",
     "react": "^0.14.3",
+    "react-bootstrap-table": "^3.4.6",
     "react-dom": "^0.14.3",
     "react-icons-kit": "^1.0.7",
     "react-redux": "4.3.0",
     "react-router": "^4.0.0",
     "react-router-dom": "^4.1.2",
     "react-sidenav": "^2.1.1",
-    "redux": "^3.0.4",
-    "youtube-api": "^2.0.8",
-    "youtube-api-search": "0.0.5"
+    "redux": "^3.0.4"
   }
 }
