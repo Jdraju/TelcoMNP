@@ -19,7 +19,7 @@ customerIdent:{
     padding: '10px 10px'
 
 },
-
+//TESTUPTODATE
 customerDetails:{
     //boxShadow: '2px 0px 2px 2px #888888',
     height:'75%',
