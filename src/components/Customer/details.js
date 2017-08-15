@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import { css } from 'aphrodite'
 import { styles } from './styles.css'
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-
+import { PureComponent } from 'react';
+import { inject, observer } from 'mobx-react';
 
 var products = [{
       num: 12144567890,
@@ -13,18 +14,19 @@ var products = [{
   }
   ]
 
-class details extends Component{
+@inject('store') @observer
+export default class details extends Component{
 
 
     render() {
         return(
             <div>
-                <BootstrapTable data={ products } striped hover condensed>
+                <BootstrapTable data={ this.props.store.data } striped hover condensed>
+                     <TableHeaderColumn dataField='custName'>Customer Name</TableHeaderColumn>
                     <TableHeaderColumn dataField='num' isKey>Number</TableHeaderColumn>
                     <TableHeaderColumn dataField='csp'>Current CSP</TableHeaderColumn>
-                    <TableHeaderColumn dataField='custName'>Customer Name</TableHeaderColumn>
                     <TableHeaderColumn dataField='emailID'>Email ID</TableHeaderColumn>
-                    <TableHeaderColumn dataField='eligibility'>Eligibility</TableHeaderColumn>
+                   
                 </BootstrapTable>
             </div>     
 
@@ -34,4 +36,3 @@ class details extends Component{
 
 }
 
-export default details;
