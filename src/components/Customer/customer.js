@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { css } from 'aphrodite'
 import { styles } from './styles.css'
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import { Button } from 'react-bootstrap';
 import Plans from './plans';
 import Details from './details';
 
@@ -46,7 +47,7 @@ class customer extends Component{
 
             <div className={css(styles.customerIdent)}>
                 <p> To check eligibility, enter your phone number.<br/> During this process you will have to provide additional information to establish your identity.</p>
-                Enter # to check Eligibility: <input/> <button>Check Eligibility</button><button>Track</button>
+                Enter # to check Eligibility: <input/> <Button bsStyle="primary" style = {{marginRight:'3px'}}>Check Eligibility</Button><Button bsStyle="info">Track</Button>
             </div>
 
             <div className={css(styles.customerDetails)}>

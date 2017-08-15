@@ -10,8 +10,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 import Customer from './components/Customer/customer';
-import Donor from './components/DO/do';
-import Recipent from './components/RO/ro';
+import Donor from './components/DO/donor';
+import Recipent from './components/RO/recipient';
 import Regulator from './components/Regulator/regulator';
 import Home from './components/Home/home';
 
