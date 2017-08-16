@@ -5,6 +5,8 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import { Button } from 'react-bootstrap';
 import Plans from './plans';
 import Details from './details';
+import { PureComponent } from 'react';
+import { inject, observer } from 'mobx-react';
 
 var products = [{
       id: 1,
@@ -31,12 +33,18 @@ var products = [{
   
   ]
 
-class customer extends Component{
+
+
+@inject('store') @observer
+export default class customer extends Component{
     constructor(props){
         super(props);
 
         this.state = {term:''};
     }
+      fun=()=>{
+   this.props.store.getUserData(this.usernum.value);
+}
 
     render() {
         return(
@@ -47,13 +55,15 @@ class customer extends Component{
 
             <div className={css(styles.customerIdent)}>
                 <p> To check eligibility, enter your phone number.<br/> During this process you will have to provide additional information to establish your identity.</p>
-                Enter # to check Eligibility: <input/> <Button bsStyle="primary" style = {{marginRight:'3px'}}>Check Eligibility</Button><Button bsStyle="info">Track</Button>
+                Enter # to check Eligibility: <input/> <Button bsStyle="primary" style = {{marginRight:'3px'}} onClick={this.fun}>Check Eligibility</Button><Button bsStyle="info">Track</Button>
             </div>
 
             <div className={css(styles.customerDetails)}>
                 <Details />
                 <br/>
                 <Plans />
+                <br/>
+                <Button bsStyle = "success"> Submit</Button>
             </div>     
 
         </div>
@@ -63,4 +73,3 @@ class customer extends Component{
 
 }
 
-export default customer;

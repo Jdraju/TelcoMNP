@@ -3,8 +3,8 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import PortIn from './PortIn';
 import PortOut from './PortOut';
 import Graphs from './graphs';
-//import { css } from 'aphrodite'
-//import { styles } from './styles.css'
+import { css } from 'aphrodite'
+import { styles } from './styles.css'
 
 var products = [{
       id: 1,
