@@ -64,6 +64,8 @@ export default class customer extends Component{
                 <Details />
                 <br/>
                 <Plans />
+                <br/>
+                <Button bsStyle = "success"> Submit</Button>
             </div>     
 
         </div>
