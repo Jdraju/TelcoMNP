@@ -7,6 +7,8 @@ import { ic_business } from 'react-icons-kit/md/ic_business';
 import { css } from 'aphrodite'
 import { styles } from './components/styles.css'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Provider,observer } from 'mobx-react'
+import { initStore } from '../store'
 
 
 import Customer from './components/Customer/customer';
@@ -15,25 +17,25 @@ import Recipent from './components/RO/recipient';
 import Regulator from './components/Regulator/regulator';
 import Home from './components/Home/home';
 
+
+
+
+
 const SideNav = withRR4();
 
-class Sales extends React.Component {
 
-    componentWillUnmount() {
-        console.log('Unmount');
-    }
+@observer
+export default class RR4 extends React.Component {
 
-    render() {
-        return (
-            <div>Sales</div>
-        );
-    }
-}
-
-class RR4 extends React.Component {
+    getInitialProps({ req }) {
+    const isServer = !!req
+    const store = initStore(isServer)
+    return {isServer}
+  }
 
     constructor(props) {
         super(props);
+        this.store = initStore(props.isServer);
 
     }
 
@@ -59,7 +61,7 @@ class RR4 extends React.Component {
 
 
     render() {
-        return (
+        return (<Provider store={this.store}>
             <div className={css(styles.pageWrap)}>
 
                 {/*Title Bar*/}
@@ -128,6 +130,7 @@ class RR4 extends React.Component {
                     
                     {/* Content*/}
             </div>
+            </Provider>
         );
     }
 }

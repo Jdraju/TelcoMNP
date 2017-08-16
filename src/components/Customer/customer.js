@@ -8,6 +8,8 @@ import Details from './details';
 import { PureComponent } from 'react';
 import { inject, observer } from 'mobx-react';
 
+
+
 var products = [{
       id: 1,
       name: "Plan1",
