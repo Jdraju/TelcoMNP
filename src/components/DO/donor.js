@@ -42,6 +42,7 @@ class donor extends Component{
         return(
             <div>
                 <h3>Donor Operator View</h3>
+                <button onClick={() => console.log('Aman')}>Check Eligibility</button>
                 <div >
                     <PortOut/>
                 </div>
