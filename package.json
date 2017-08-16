@@ -31,8 +31,9 @@
     "webpack": "1.15.0",
     "webpack-dev-server":"1.16.5",
 
+    "pui-react-iconography": "^8.0.4",
+    "pui-react-table": "^8.0.4",
     "react": "^15.6.1",
-
     "maki": "^2.1.0",
     "mobx": "^3.2.2",
     "mobx-react": "^4.2.2",
@@ -46,6 +47,7 @@
     "react-sidenav": "^2.1.1",
     "react-toggle-display": "^2.2.0",
     "redux": "^3.0.4",
-    "superagent": "^3.5.2"
+    "superagent": "^3.5.2",
+    "svg-react-loader": "^0.3.7"
   }
 }

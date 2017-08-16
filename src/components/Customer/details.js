@@ -22,10 +22,10 @@ export default class details extends Component{
         return(
             <div>
                 <BootstrapTable data={ this.props.store.data } striped hover condensed>
-                     <TableHeaderColumn dataField='custName'>Customer Name</TableHeaderColumn>
+                     <TableHeaderColumn dataField='custname'>Customer Name</TableHeaderColumn>
                     <TableHeaderColumn dataField='num' isKey>Number</TableHeaderColumn>
-                    <TableHeaderColumn dataField='csp'>Current CSP</TableHeaderColumn>
-                    <TableHeaderColumn dataField='emailID'>Email ID</TableHeaderColumn>
+                    <TableHeaderColumn dataField='servpro'>Current CSP</TableHeaderColumn>
+                    <TableHeaderColumn dataField='emailid'>Email ID</TableHeaderColumn>
                    
                 </BootstrapTable>
             </div>     
