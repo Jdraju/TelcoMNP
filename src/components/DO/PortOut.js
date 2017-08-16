@@ -10,12 +10,13 @@ var products = [{
       custName: "John Smith",
       emailID: "johnsmith@abc.com",
       eligibility:"Y",
+      Button:""
   }
   ]
 
 
 function buttonFormatter(cell, row){
-    return '<Button bsStyle="info" width="100px">View</Button>';
+    return "<Button onClick={console.log('THISWORKS')} bsStyle='info'>View</Button>";
 }
 
 class portOut extends Component{
@@ -30,12 +31,9 @@ class portOut extends Component{
                     <TableHeaderColumn dataField='custName'>Customer Name</TableHeaderColumn>
                     <TableHeaderColumn dataField='emailID'>Email ID</TableHeaderColumn>
                     <TableHeaderColumn dataField='eligibility'>Eligibility</TableHeaderColumn>
-                    <TableHeaderColumn dataField='button' dataFormat={buttonFormatter}>Actions</TableHeaderColumn>
+                    <TableHeaderColumn dataField='Button' dataFormat={buttonFormatter}>Actions</TableHeaderColumn>
                 </BootstrapTable>
-                
             </div>     
-
-
         );
     }
 

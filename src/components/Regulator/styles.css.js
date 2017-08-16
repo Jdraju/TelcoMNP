@@ -26,6 +26,32 @@ customerPlans:{
     width:'97%',
     margin:'2%',
     padding:'10px',
+},
+PortR:{
+    height: '260px',
+    width:'33%',
+    //boxShadow: '2px 0px 2px 2px #888888',
+    //padding:'10px',
+    //backgroundImage: './Inbound.png',
+    float:'left',
+    marginRight: '5px',
+    //background: inbound,
+    display:'inline-block',
+},
+
+AvgPort:{
+    height: '260px',
+    width:'60%',
+    //boxShadow: '2px 0px 2px 2px #888888',
+    //padding:'10px',
+    float:'left',
+    //margin: '5px',
+
+},
+img1:{
+    maxHeight:'100%',
+    maxWidth: '100%',
+
 }
 
 

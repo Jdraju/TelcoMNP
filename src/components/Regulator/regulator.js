@@ -1,6 +1,19 @@
 import React, {Component} from 'react';
 import { css } from 'aphrodite'
 import { styles } from './styles.css'
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import { Button } from 'react-bootstrap';
+
+
+var products = [{
+      num: 12144567890,
+      csp: "ABC",
+      custName: "John Smith",
+      emailID: "johnsmith@abc.com",
+      eligibility:"Y",
+      Button:""
+  }
+  ]
 
 class Regulator extends Component{
     constructor(props){
@@ -15,48 +28,21 @@ class Regulator extends Component{
             <h3>Regulator View: </h3>
 
             <div className={css(styles.customerIdent)}>
-                
+                Enter Customer Number: <input/> <Button bsStyle="primary" style = {{marginRight:'3px'}} onClick={this.fun}>Submit</Button>
+
             </div>
 
-            <div className={css(styles.customerPlans)}>
-                <table>
-                    <tr>
-                        <th>Company</th>
-                        <th>Contact</th>
-                        <th>Country</th>
-                    </tr>
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                    </tr>
-                    <tr>
-                        <td>Centro comercial Moctezuma</td>
-                        <td>Francisco Chang</td>
-                        <td>Mexico</td>
-                    </tr>
-                    <tr>
-                        <td>Ernst Handel</td>
-                        <td>Roland Mendel</td>
-                        <td>Austria</td>
-                    </tr>
-                    <tr>
-                        <td>Island Trading</td>
-                        <td>Helen Bennett</td>
-                        <td>UK</td>
-                    </tr>
-                    <tr>
-                        <td>Laughing Bacchus Winecellars</td>
-                        <td>Yoshi Tannamuri</td>
-                        <td>Canada</td>
-                    </tr>
-                    <tr>
-                        <td>Magazzini Alimentari Riuniti</td>
-                        <td>Giovanni Rovelli</td>
-                        <td>Italy</td>
-                    </tr>
-                </table>
+            <div className={css(styles.PortR)}>
+                <img src = '../../src/static/PortR.png' className={css(styles.img1)}/>
             </div>     
+            <div className={css(styles.AvgPort)}>
+                <BootstrapTable data={ products} striped hover condensed>
+                    <TableHeaderColumn dataField='custName'>Customer Name</TableHeaderColumn>
+                    <TableHeaderColumn dataField='num' isKey>Number</TableHeaderColumn>
+                    <TableHeaderColumn dataField='csp'>Current CSP</TableHeaderColumn>
+                    <TableHeaderColumn dataField='emailID'>Email ID</TableHeaderColumn>
+                </BootstrapTable>
+            </div>  
 
         </div>
 
