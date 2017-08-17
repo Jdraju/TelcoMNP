@@ -6,7 +6,7 @@ import { ic_aspect_ratio } from 'react-icons-kit/md/ic_aspect_ratio';
 import { ic_business } from 'react-icons-kit/md/ic_business';
 import { css } from 'aphrodite'
 import { styles } from './components/styles.css'
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Provider,observer } from 'mobx-react'
 import { initStore } from '../store'
 
@@ -77,54 +77,27 @@ export default class RR4 extends React.Component {
                 {/*Navigation Bar*/}
                 
 
-                      {/*  <div className={css(styles.navBar1)}>
-                            <SideNav default='Home' highlightColor='#FFF' highlightBgColor='#42c8f4'>
-                                
-                                <Nav id='Home'>
-                                    <NavIcon><SvgIcon size={10} icon={ic_aspect_ratio}/></NavIcon>    
-                                    <NavText> Home </NavText>
-                                </Nav>
-
-                                <Nav id='Customer'>
-                                    <NavIcon><SvgIcon size={10} icon={ic_aspect_ratio}/></NavIcon>    
-                                    <NavText> Customer </NavText>
-                                </Nav>
-
-                                <Nav id='DonorCSP'>
-                                    <NavIcon><SvgIcon size={10} icon={ic_aspect_ratio}/></NavIcon>    
-                                    <NavText> Donor CSP </NavText>
-                                </Nav>
-
-                                <Nav id='RecipentCSP'>
-                                    <NavIcon><SvgIcon size={10} icon={ic_aspect_ratio}/></NavIcon>    
-                                    <NavText> Recipent CSP </NavText>
-                                </Nav>
-
-                                <Nav id='Customer'>
-                                    <NavIcon><SvgIcon size={10} icon={ic_aspect_ratio}/></NavIcon>    
-                                    <NavText> Regulator </NavText>
-                                </Nav>
-                                {/*
-                                <Nav id='sales'>
-                                    <NavText> Sales </NavText>
-                                    <Nav id='list'>
-                                        <NavText> List Sales </NavText>
-                                    </Nav>
-                                </Nav>
-                                <Nav id='products'>
-                                    <NavText>  Products </NavText>
-                                </Nav>
-
-                                
-                            </SideNav> 
-                        </div>*/}
+                        
                         <Router>
-                            <div className={css(styles.indexContent)}>
-                                <Route exact path ="/" render={this.renderHome}/>
-                                <Route path ="/Customer" render={this.renderCustomer}/>
-                                <Route path ="/DO" render={this.renderDonor}/>
-                                <Route path ="/RO" render={this.renderRecipent}/>
-                                <Route path ="/Regulator" render={this.renderRegulator}/>
+                            <div>
+                                <div className={css(styles.navBar1)}>
+                                    <ul>
+                                        <li><Link to="/">Home</Link></li>
+                                        <li><Link to="/Customer">Customer</Link></li>
+                                        <li><Link to="/DO">Donor CSP</Link></li>
+                                        <li><Link to="/RO">Recipient CSP</Link></li>
+                                        <li><Link to="/Regulator">Regulator</Link></li>
+                                    </ul>
+                                </div>
+                                <div className={css(styles.indexContent)}>
+
+                                    
+                                    <Route exact path ="/" render={this.renderHome}/>
+                                    <Route path ="/Customer" render={this.renderCustomer}/>
+                                    <Route path ="/DO" render={this.renderDonor}/>
+                                    <Route path ="/RO" render={this.renderRecipent}/>
+                                    <Route path ="/Regulator" render={this.renderRegulator}/>
+                                </div>
                             </div>
                         </Router>
                     
