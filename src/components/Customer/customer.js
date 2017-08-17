@@ -48,12 +48,12 @@ export default class customer extends Component{
      
 
   fun=() => {
-   //this.props.store.getUserData("4696058208");
+   this.props.store.getUserData("4696058208");
    console.log('Aman');
 }
 
     render() {
-        console.log(this.fun())
+       
         return(
 
             
@@ -62,7 +62,7 @@ export default class customer extends Component{
 
             <div className={css(styles.customerIdent)}>
                 <p> To check eligibility, enter your phone number.<br/> During this process you will have to provide additional information to establish your identity.</p>
-                Enter # to check Eligibility: <input ref="usernum" /> <button onClick={() => console.log('Aman')}>Check Eligibility</button> <button>Track</button>
+                Enter # to check Eligibility: <input ref="usernum" /> <button onClick={this.fun}>Check Eligibility</button> <button>Track</button>
             </div>
 
             <div className={css(styles.customerDetails)}>

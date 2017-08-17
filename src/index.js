@@ -21,7 +21,7 @@ import Home from './components/Home/home';
 
 
 
-const SideNav = withRR4();
+//const SideNav = withRR4();
 
 
 @observer
@@ -77,7 +77,7 @@ export default class RR4 extends React.Component {
                 {/*Navigation Bar*/}
                 
 
-                        <div className={css(styles.navBar1)}>
+                      {/*  <div className={css(styles.navBar1)}>
                             <SideNav default='Home' highlightColor='#FFF' highlightBgColor='#42c8f4'>
                                 
                                 <Nav id='Home'>
@@ -115,9 +115,9 @@ export default class RR4 extends React.Component {
                                     <NavText>  Products </NavText>
                                 </Nav>
 
-                                */}
-                            </SideNav>
-                        </div>
+                                
+                            </SideNav> 
+                        </div>*/}
                         <Router>
                             <div className={css(styles.indexContent)}>
                                 <Route exact path ="/" render={this.renderHome}/>
