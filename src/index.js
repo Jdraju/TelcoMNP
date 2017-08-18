@@ -38,6 +38,11 @@ export default class RR4 extends React.Component {
 
     }
 
+
+    donorMNPGet=() => {
+       this.store.getMNPRec('donor');
+    }
+
     renderHome = () => {
         return <Home />;
     }
@@ -83,7 +88,7 @@ export default class RR4 extends React.Component {
                                     <ul>
                                         <li><Link to="/">Home</Link></li>
                                         <li><Link to="/Customer">Customer</Link></li>
-                                        <li><Link to="/DO">Donor CSP</Link></li>
+                                        <li onClick={this.donorMNPGet}><Link to="/DO">Donor CSP</Link></li>
                                         <li><Link to="/RO">Recipient CSP</Link></li>
                                         <li><Link to="/Regulator">Regulator</Link></li>
                                     </ul>
