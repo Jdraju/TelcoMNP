@@ -13,6 +13,10 @@ class Store {
   
   @observable data2=[];
   @observable dataDonorOut=[];
+  @observable dataDonorIn=[];
+  @observable dataRecepOut=[];
+  @observable dataRecepIn=[];
+
 
   @observable showplans=false;
 
@@ -33,7 +37,33 @@ class Store {
      let msdata = await request
       .get('//172.27.12.46:3000/api/MNPREC/mnp124');
       if(csp=='donor'){
-        this.dataDonorOut = this.dataDonorOut.concat(JSON.parse(msdata.text));
+        this.dataDonorOut=[];
+        this.dataDonorIn=[];
+         
+        if(JSON.parse(msdata.text).cspold=="resource:org.acme.sample.CSP#name:ABC")
+         {
+           this.dataDonorOut = this.dataDonorOut.concat(JSON.parse(msdata.text));
+         }
+        else if(JSON.parse(msdata.text).cspnew=="resource:org.acme.sample.CSP#name:ABC")
+        {
+          this.dataDonorIn = this.dataDonorIn.concat(JSON.parse(msdata.text));
+        }
+
+      }
+
+      if(csp=='recep'){
+        this.dataRecepOut=[];
+        this.dataRecepIn=[];
+         
+        if(JSON.parse(msdata.text).cspold=="resource:org.acme.sample.CSP#name:XYZ")
+         {
+           this.dataRecepOut = this.dataRecepOut.concat(JSON.parse(msdata.text));
+         }
+        else if(JSON.parse(msdata.text).cspnew=="resource:org.acme.sample.CSP#name:XYZ")
+        {
+          this.dataRecepIn = this.dataRecepIn.concat(JSON.parse(msdata.text));
+        }
+
       }
        this.data2 = this.data2.concat(JSON.parse(msdata.text));
      console.log(this.data2);

@@ -38,9 +38,15 @@ export default class RR4 extends React.Component {
 
     }
 
-
+    customerF=()=>{
+        this.store.showplans=false;
+        this.store.data =[];
+    }
     donorMNPGet=() => {
        this.store.getMNPRec('donor');
+    }
+    recepMNPGet=() => {
+       this.store.getMNPRec('recep');
     }
 
     renderHome = () => {
@@ -88,9 +94,9 @@ export default class RR4 extends React.Component {
 
                                     <ul className={css(styles.menuBar)}>
                                         <li className={css(styles.menuItem)}><Link to="/">Home</Link></li>
-                                        <li className={css(styles.menuItem)}><Link to="/Customer">Customer</Link></li>
+                                        <li className={css(styles.menuItem)} onClick={this.customerF}><Link to="/Customer">Customer</Link></li>
                                         <li className={css(styles.menuItem)} onClick={this.donorMNPGet} ><Link to="/DO">Donor CSP</Link></li>
-                                        <li className={css(styles.menuItem)}><Link to="/RO">Recipient CSP</Link></li>
+                                        <li className={css(styles.menuItem)} onClick={this.recepMNPGet}><Link to="/RO">Recipient CSP</Link></li>
                                         <li className={css(styles.menuItem)}><Link to="/Regulator">Regulator</Link></li>
 
                                     </ul>

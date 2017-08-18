@@ -68,13 +68,15 @@ export default class customer extends Component{
             <h3>Customer Eligibility View: </h3>
 
             <div className={css(styles.customerIdent)}>
+                 <ToggleDisplay show={!this.props.store.showplans}>
                 <p> To check eligibility, enter your phone number.<br/> During this process you will have to provide additional information to establish your identity.</p>
-                Enter # to check Eligibility: <input ref={(input) => { this.usernum = input; }} /> <button onClick={this.checkEligible}>Check Eligibility</button> <button>Track</button>
+                Enter # to check Eligibility:<input ref={(input) => { this.usernum = input; }} /> <button onClick={this.checkEligible}>Check Eligibility</button> <button>Track</button></ToggleDisplay>
+                <ToggleDisplay show={this.props.store.showplans}>
+                <p> Congrats !! You are eligible to port to a new operator</p>
+                Please select a plan and submit:</ToggleDisplay> 
             </div>
 
             <hr/>
-            <div className={css(styles.customerDetails)}>
-
  
            <ToggleDisplay show={this.props.store.showplans}>
             <div className={css(styles.customerDetails)} >
@@ -86,8 +88,8 @@ export default class customer extends Component{
                 <Button bsStyle = "success" onClick={this.userIni}> Submit</Button>
             </div>     
            </ToggleDisplay>
+
         </div>
-        
 
         );
     }

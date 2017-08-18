@@ -2,51 +2,38 @@ import React, {Component} from 'react';
 //import { css } from 'aphrodite'
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import { Button } from 'react-bootstrap';
+import { PureComponent } from 'react';
+import { inject, observer } from 'mobx-react';
 
 
 <link rel="stylesheet" href="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table-all.min.css"/>
 
-var products = [{
-      msisdn:12148706525,
-      csp: "ABC",
-      queuedT: "John Smith",
-      reason: "johnsmith@abc.com",
-      status:"Y",
-  },
-  {
-      msisdn:12148706525,
-      csp: "ABC",
-      queuedT: "John Smith",
-      reason: "johnsmith@abc.com",
-      status:"Y",
-  },
-  {
-      msisdn:12148706525,
-      csp: "ABC",
-      queuedT: "John Smith",
-      reason: "johnsmith@abc.com",
-      status:"Y",
-  }
-  ]
+
 
 function buttonFormatter(cell, row){
     return '<Button bsStyle="info" width="100px">View</Button>';
     }
 
-class portIn extends Component{
 
+@inject('store') @observer
+export default class portIn extends Component{
+
+ constructor(props){
+        super(props);
+
+        this.state = {term:''};
+    }
 
     render() {
         return(
             <div>
-                
-                <BootstrapTable data={ products } striped hover condensed>
-                    <TableHeaderColumn dataField='num' isKey>MSISDN</TableHeaderColumn>
-                    <TableHeaderColumn dataField='csp'>CSP(DO)</TableHeaderColumn>
-                    <TableHeaderColumn dataField='queuedT'>Queued Time</TableHeaderColumn>
-                    <TableHeaderColumn dataField='reason'>Reason</TableHeaderColumn>
+                 <h4>Port In</h4>
+                 <BootstrapTable data={ this.props.store.dataDonorIn } striped hover condensed>
+                    <TableHeaderColumn dataField='recid' isKey>Record Id</TableHeaderColumn>
+                    <TableHeaderColumn dataField='user' >Number</TableHeaderColumn>
+                    <TableHeaderColumn dataField='cspnew'>New CSP</TableHeaderColumn>
                     <TableHeaderColumn dataField='status'>Status</TableHeaderColumn>
-                    <TableHeaderColumn dataField='button' dataFormat={buttonFormatter}>Actions</TableHeaderColumn>
+                    <TableHeaderColumn dataField='Button' dataFormat={buttonFormatter}>Actions</TableHeaderColumn>
                 </BootstrapTable>
             </div>     
 
@@ -56,5 +43,4 @@ class portIn extends Component{
 
 }
 
-export default portIn;
 

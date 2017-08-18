@@ -41,7 +41,7 @@ class donor extends Component{
     render() {
         return(
             <div>
-                <h3>Donor Operator View</h3>
+                <h2>Donor Operator View</h2>
                 <div >
                     <PortOut/>
                 </div>
