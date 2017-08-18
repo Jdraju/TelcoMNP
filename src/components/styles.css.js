@@ -14,6 +14,7 @@ titleBar: {
     height:'50px',
     width:'100%',
     boxShadow: '2px 2px 2px #888888',
+    border: '1px solid #e7e7e7',
 
 },
 
@@ -49,10 +50,10 @@ menuBar:{
     boxShadow: '2px 2px 2px #888888',
     padding:'0px',
     margin:'0px',
-
-
-
+    color:'white',
+    border: '1px solid #e7e7e7',
 },
+
 menuItem:{
     //color:'white',
     width:'100px',
@@ -61,12 +62,15 @@ menuItem:{
     listStyleType: 'none',
     //paddingRight:'10px',
     textAlign:'center',
-    borderRight: '1px solid #bbb',
+    //borderRight: '1px solid #bbb',
     height:'100%',
+    paddingTop:'5px',
     ':hover':{
         backgroundColor: '#42c8f4',
     },
-    
+},
+menuIcon:{
+    color:'white',
 },
 
 
@@ -92,7 +96,6 @@ indexContent:{
     float:'left',
     margin:'10px'
 },
-
 
 
 })

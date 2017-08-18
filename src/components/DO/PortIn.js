@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 import { PureComponent } from 'react';
 import { inject, observer } from 'mobx-react';
 import SkyLight from 'react-skylight';
-
+import Ticket from './ticket';
 
 <link rel="stylesheet" href="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table-all.min.css"/>
 
@@ -45,8 +45,11 @@ onClickProductSelected(cell, row, rowIndex){
                     <TableHeaderColumn dataField='status'>Status</TableHeaderColumn>
                     <TableHeaderColumn dataField='Button' dataFormat={this.cellButton.bind(this)}>Actions</TableHeaderColumn>
                 </BootstrapTable>
+                <SkyLight hideOnOverlayClicked ref="simpleDialog" title="Customer {rowIndex}">
+                    <Ticket/>
+                </SkyLight>
             </div>     
-
+            
 
         );
     }
