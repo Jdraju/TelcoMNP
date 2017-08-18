@@ -39,22 +39,48 @@ titleText:{
     padding:'10px',
 
 },
+menuBar:{
+    listStyleType: 'none',
+    margin: 0,
+    padding: 0,
+    overflow: 'hidden',
+    backgroundColor: '#f3f3f3',
+    height:'25px',
+    boxShadow: '2px 2px 2px #888888',
+    padding:'0px',
+    margin:'0px',
+
+
+},
+menuItem:{
+    //color:'white',
+    width:'100px',
+    float:'left',
+    fontSize:'12px',
+    listStyleType: 'none',
+    //paddingRight:'10px',
+    textAlign:'center',
+
+},
 
 //Main Navigation
 navBar1: {
     allign: 'left',
-    width: '150px',
+    //width: '150px',
+    width:'100%',
     fontSize:'10px',
     height:'95%',
+    height:'75px',
     //boxShadow: '2px 0px 2px #888888',
-    float:'left',
+    //float:'left',
     margin: '2px',
 },
 
 //content
 indexContent:{
     height:'90%',
-    width: '85.5%',
+    //width: '85.5%',
+    width:'95%',
     //boxShadow: '2px 2px 2px 2px #888888',
     float:'left',
     margin:'10px'

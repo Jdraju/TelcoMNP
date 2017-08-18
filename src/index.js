@@ -81,12 +81,12 @@ export default class RR4 extends React.Component {
                         <Router>
                             <div>
                                 <div className={css(styles.navBar1)}>
-                                    <ul>
-                                        <li><Link to="/">Home</Link></li>
-                                        <li><Link to="/Customer">Customer</Link></li>
-                                        <li><Link to="/DO">Donor CSP</Link></li>
-                                        <li><Link to="/RO">Recipient CSP</Link></li>
-                                        <li><Link to="/Regulator">Regulator</Link></li>
+                                    <ul className={css(styles.menuBar)}>
+                                        <li className={css(styles.menuItem)}>><Link to="/">Home</Link></li>
+                                        <li className={css(styles.menuItem)}>><Link to="/Customer">Customer</Link></li>
+                                        <li className={css(styles.menuItem)}>><Link to="/DO">Donor CSP</Link></li>
+                                        <li className={css(styles.menuItem)}>><Link to="/RO">Recipient CSP</Link></li>
+                                        <li className={css(styles.menuItem)}>><Link to="/Regulator">Regulator</Link></li>
                                     </ul>
                                 </div>
                                 <div className={css(styles.indexContent)}>

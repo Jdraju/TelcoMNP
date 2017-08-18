@@ -5,9 +5,10 @@ export const styles = StyleSheet.create({
 
 //Customer Page
 customers:{
-    height:'80%',
+    height:'78%',
     width:'100%',
-    padding:'10px'
+    padding:'10px',
+    //boxShadow: '2px 2px 2px #888888',
     
 },
 
@@ -17,6 +18,7 @@ customerIdent:{
     width:'97%',
     margin:'2%',
     padding: '10px 10px'
+    
 
 },
 //TESTUPTODATE

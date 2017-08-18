@@ -64,7 +64,7 @@ export default class customer extends Component{
                 <p> To check eligibility, enter your phone number.<br/> During this process you will have to provide additional information to establish your identity.</p>
                 Enter # to check Eligibility: <input ref="usernum" /> <button onClick={this.fun}>Check Eligibility</button> <button>Track</button>
             </div>
-
+            <hr/>
             <div className={css(styles.customerDetails)}>
                 <Details />
                 <br/>
