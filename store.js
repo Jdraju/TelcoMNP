@@ -13,6 +13,8 @@ class Store {
   
   @observable data2=[];
 
+  @observable showplans=false;
+
    
 
    getUserData=async(num)=>{
@@ -37,14 +39,14 @@ class Store {
 
    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-   userinimnp=async()=>{
+   userinimnp=async(num)=>{
      let msdata = await request
       .post('//172.27.12.46:3000/api/MNPREC')
       .type('form')
       .send({
                               $class: "org.acme.sample.MNPREC",
                               recid: "mnp124",
-                              user: "resource:org.acme.sample.MSISDN#num:4696058208",
+                              user: "resource:org.acme.sample.MSISDN#num:"+num,
                               cspold: "resource:org.acme.sample.CSP#name:ABC",
                               cspnew: "resource:org.acme.sample.CSP#name:XYZ",
                               planold: {
@@ -71,7 +73,6 @@ class Store {
 
       })
    
-
      return 1
    }
 
@@ -201,6 +202,7 @@ let msdata = await request
   
   constructor (isServer) {
 
+   this.showplans=false;
     //var usernum = document.getElementById('usernum');
     //usernum.onclick=this.props.store.getUserData;
 /*
