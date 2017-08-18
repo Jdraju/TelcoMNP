@@ -4,10 +4,11 @@ import { Button } from 'react-bootstrap';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import { PureComponent } from 'react';
 import { inject, observer } from 'mobx-react';
+import SkyLight from 'react-skylight';
+import Ticket from './ticket';
 
-function buttonFormatter(cell, row){
-    return "<Button onClick={console.log('THISWORKS')} bsStyle='info'>View</Button>";
-}
+
+
 
 @inject('store') @observer
 export default class portOut extends Component{
@@ -18,6 +19,19 @@ export default class portOut extends Component{
         this.state = {term:''};
     }
 
+onClickProductSelected(cell, row, rowIndex){
+  	console.log('Product #', rowIndex);
+  }
+  
+  cellButton(cell, row, enumObject, rowIndex) {
+  	return (
+        <button type="button" 
+            onClick={() => 
+            this.refs.simpleDialog.show()}>
+            View
+        </button>
+    )
+  }
     render() {
         return(
             <div>
@@ -27,9 +41,15 @@ export default class portOut extends Component{
                     <TableHeaderColumn dataField='user' >Number</TableHeaderColumn>
                     <TableHeaderColumn dataField='cspnew'>New CSP</TableHeaderColumn>
                     <TableHeaderColumn dataField='status'>Status</TableHeaderColumn>
-                    <TableHeaderColumn dataField='Button' dataFormat={buttonFormatter}>Actions</TableHeaderColumn>
+                    <TableHeaderColumn dataField='button' dataFormat={this.cellButton.bind(this)}>Action</TableHeaderColumn>
                 </BootstrapTable>
+
+                <SkyLight hideOnOverlayClicked ref="simpleDialog" title="Customer {rowIndex}">
+                    <Ticket/>
+                </SkyLight>
+
             </div>     
+            
         );
     }
 
