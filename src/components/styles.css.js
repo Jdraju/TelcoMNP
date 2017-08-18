@@ -44,11 +44,12 @@ menuBar:{
     margin: 0,
     padding: 0,
     overflow: 'hidden',
-    backgroundColor: '#f3f3f3',
+    backgroundColor: '#454545',
     height:'25px',
     boxShadow: '2px 2px 2px #888888',
     padding:'0px',
     margin:'0px',
+
 
 
 },
@@ -60,8 +61,14 @@ menuItem:{
     listStyleType: 'none',
     //paddingRight:'10px',
     textAlign:'center',
-
+    borderRight: '1px solid #bbb',
+    height:'100%',
+    ':hover':{
+        backgroundColor: '#42c8f4',
+    },
+    
 },
+
 
 //Main Navigation
 navBar1: {
