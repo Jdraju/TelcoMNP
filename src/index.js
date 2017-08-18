@@ -38,6 +38,11 @@ export default class RR4 extends React.Component {
 
     }
 
+
+    donorMNPGet=() => {
+       this.store.getMNPRec('donor');
+    }
+
     renderHome = () => {
         return <Home />;
     }
@@ -80,12 +85,14 @@ export default class RR4 extends React.Component {
                         <Router>
                             <div>
                                 <div className={css(styles.navBar1)}>
+
                                     <ul className={css(styles.menuBar)}>
-                                        <li className={css(styles.menuItem)}>><Link to="/">Home</Link></li>
-                                        <li className={css(styles.menuItem)}>><Link to="/Customer">Customer</Link></li>
-                                        <li className={css(styles.menuItem)}>><Link to="/DO">Donor CSP</Link></li>
-                                        <li className={css(styles.menuItem)}>><Link to="/RO">Recipient CSP</Link></li>
-                                        <li className={css(styles.menuItem)}>><Link to="/Regulator">Regulator</Link></li>
+                                        <li className={css(styles.menuItem)}><Link to="/">Home</Link></li>
+                                        <li className={css(styles.menuItem)}><Link to="/Customer">Customer</Link></li>
+                                        <li className={css(styles.menuItem)} onClick={this.donorMNPGet} ><Link to="/DO">Donor CSP</Link></li>
+                                        <li className={css(styles.menuItem)}><Link to="/RO">Recipient CSP</Link></li>
+                                        <li className={css(styles.menuItem)}><Link to="/Regulator">Regulator</Link></li>
+
                                     </ul>
                                 </div>
                                 <div className={css(styles.indexContent)}>
@@ -109,53 +116,3 @@ export default class RR4 extends React.Component {
 
 
 ReactDOM.render(<RR4 />,document.querySelector('.container1'));
-//render(<RR4 />, document.getElementById('app'));
-{/*<BrowserRouter>
-    <div className={css(styles.pageWrap)}>
-
-                {/*Title Bar*
-                <div className={css(styles.titleBar)}>
-                    <div className={css(styles.ibmLogo)}>
-                        <img className={css(styles.ibmLogoPic)} src = '../Media/Picture1.png' height = '100px' width = '100px' />
-                    </div>
-                    <div className={css(styles.titleText)}>
-                        <b>Mobile Number Portability</b>
-                    </div>
-                </div>
-                {/*Navigation Bar
-                <div className={css(styles.navBar1)}>
-                    <SideNav highlightColor='#FFF' highlightBgColor='#42c8f4'>       
-                        <Nav id='Customer'>
-                            <NavIcon><SvgIcon size={10} icon={ic_aspect_ratio}/></NavIcon>    
-                            <NavText> Customer </NavText>
-                        </Nav>
-                        <Nav id='RecipientCSP'>
-                            <NavIcon><SvgIcon size={10} icon={ic_business}/></NavIcon>
-                            <NavText> Recipient CSP </NavText>
-                        </Nav>
-                        <Nav id='DonorCSP'>
-                            <NavIcon><SvgIcon size={10} icon={ic_business}/></NavIcon>
-                            <NavText> Donor CSP </NavText>
-                        </Nav>
-                        <Nav id='Customer'>
-                            <NavIcon><SvgIcon size={10} icon={ic_aspect_ratio}/></NavIcon>    
-                            <NavText> Regulator</NavText>
-                        </Nav>
-                    </SideNav>
-                </div>
-
-                {/* Content
-                <div className={css(styles.indexContent)}>
-                    
-                        <Route path ="/" component = {Home}/>
-                        <Route path ="/Customer" component= {Customer}/>
-                        <Route path ="/DO" component = {Donor}/>
-                        <Route path ="/RO" component = {Recipent}/>
-                        <Route path ="/Regulator" component = {Regulator}/>
-                        
-                </div>
-
-            </div>
-
-</BrowserRouter>
-*/}

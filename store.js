@@ -12,6 +12,7 @@ class Store {
   @observable data=[];
   
   @observable data2=[];
+  @observable dataDonorOut=[];
 
   @observable showplans=false;
 
@@ -27,11 +28,14 @@ class Store {
 
    }
 
-   getMNPRec=async()=>{
+   getMNPRec=async(csp)=>{
 
      let msdata = await request
       .get('//172.27.12.46:3000/api/MNPREC/mnp124');
-     this.data2 = this.data2.concat(JSON.parse(msdata.text));
+      if(csp=='donor'){
+        this.dataDonorOut = this.dataDonorOut.concat(JSON.parse(msdata.text));
+      }
+       this.data2 = this.data2.concat(JSON.parse(msdata.text));
      console.log(this.data2);
      return 1
 
