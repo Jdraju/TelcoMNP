@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { css } from 'aphrodite'
 import { styles } from './styles.css'
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import {Checkbox, CheckboxGroup} from 'react-checkbox-group';
 
 
 var products = [{
@@ -38,13 +39,20 @@ var products = [{
   }, 
   ]
 
+  var selectRowProp = {
+  mode: "checkbox",
+  clickToSelect: true,
+  bgColor: "#b3ffb3" 
+};
+
 class plans extends Component{
 
 
     render() {
         return(
             <div>
-                <BootstrapTable data={ products } striped hover condensed>
+                <BootstrapTable data={ products } selectRow={selectRowProp} striped hover condensed>
+
                     <TableHeaderColumn dataField='planID' isKey>Plan ID</TableHeaderColumn>
                     <TableHeaderColumn dataField='serviceValidity'>Term</TableHeaderColumn>
                     <TableHeaderColumn dataField='talktimeBalance'>Voice</TableHeaderColumn>

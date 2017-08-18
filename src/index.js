@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import { Nav, NavIcon, NavText, withRR4 } from 'react-sidenav';
 import SvgIcon from 'react-icons-kit';
 import { ic_aspect_ratio } from 'react-icons-kit/md/ic_aspect_ratio';
 import { ic_business } from 'react-icons-kit/md/ic_business';
