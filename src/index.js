@@ -76,9 +76,9 @@ export default class RR4 extends React.Component {
 
                 {/*Title Bar*/}
                 <div className={css(styles.titleBar)}>
-                    <div className={css(styles.ibmLogo)}>
-                        <img className={css(styles.ibmLogoPic)} src = '../Media/Picture1.png' height = '100px' width = '100px' />
-                    </div>
+                    {/*<div className={css(styles.ibmLogo)}>
+                        //<img className={css(styles.ibmLogoPic)} src = '../Media/Picture1.png' height = '100px' width = '100px' />
+                    </div> */}
                     <div className={css(styles.titleText)}>
                         <b>Mobile Number Portability</b>
                     </div>
