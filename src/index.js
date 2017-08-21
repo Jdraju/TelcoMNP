@@ -43,10 +43,10 @@ export default class RR4 extends React.Component {
         this.store.data =[];
     }
     donorMNPGet=() => {
-       this.store.getMNPRec('donor');
+       this.store.getMNPRecAll('donor');
     }
     recepMNPGet=() => {
-       this.store.getMNPRec('recep');
+       this.store.getMNPRecAll('recep');
     }
 
     renderHome = () => {
