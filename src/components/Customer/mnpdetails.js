@@ -10,6 +10,13 @@ import { inject, observer } from 'mobx-react';
 @inject('store') @observer
 export default class mnpdetails extends Component{
 
+     constructor(props){
+        super(props);
+
+        this.state = {term:''};
+        this.mnprecid="";
+    }
+
 
     render() {
         return(

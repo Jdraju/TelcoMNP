@@ -14,7 +14,7 @@ let regeneratorRuntime =  require("regenerator-runtime");
 
 var products = [{
       id: 1,
-      name: "Plan1",
+      name: "PlanB",
       price: 120
   }, {
       id: 2,
@@ -46,6 +46,8 @@ export default class customer extends Component{
         super(props);
 
         this.state = {term:''};
+        this.mnprecid="";
+        this.user="";
     }
      
 
@@ -56,7 +58,13 @@ export default class customer extends Component{
     this.props.store.trackmnp=false
     this.props.store.mnpexits=false;;
     this.props.store.nomnp=false;
+    this.props.store.useracc=false;
 
+   }
+
+
+     userAccepts=() => {
+     this.props.store.useraccepts(this.mnprecid);
    }
 
 
@@ -87,6 +95,12 @@ export default class customer extends Component{
    console.log(aaa);
    if(aaa){
     this.props.store.trackmnp=true;
+    this.mnprecid=this.props.store.data2[0].recid;
+    console.log(this.props.store.data2[0].status);
+    if(this.props.store.data2[0].status=="Recipient Offer"){
+        this.props.store.useracc=true;
+    }
+
    }
   else{
     this.props.store.nomnp=true;
@@ -96,11 +110,28 @@ export default class customer extends Component{
 }
 
 
-  userIni=() => {
-  this.props.store.userinimnp(this.usernum.value);
-    this.props.store.showplans=true;
-   console.log('Aman');
+  userIni=async() => {
+  let a= await this.props.store.userinimnp(this.usernum.value,this.reason.value);
+
+  let aaa= await this.props.store.mnpExitsCheck(this.usernum.value);
+   console.log(aaa);
+   this.resetView();
+   if(aaa){
+    this.props.store.trackmnp=true;
+    this.mnprecid=this.props.store.data2[0].recid;
+    console.log(this.props.store.data2[0].status);
+    if(this.props.store.data2[0].status=="Recipient Offer"){
+        this.props.store.useracc=true;
+    }
+
+   }
+  else{
+    this.props.store.nomnp=true;
+  } 
+  console.log('Aman');
 }
+
+
     render() {
        
         return(
@@ -138,6 +169,9 @@ export default class customer extends Component{
                }
             </div>     
            </ToggleDisplay>
+              <ToggleDisplay show={this.props.store.useracc}>
+              <Button bsStyle = "success" onClick={this.userAccepts}> Accept and Complete MNP</Button>
+             </ToggleDisplay>   
 
  
            <ToggleDisplay show={this.props.store.showplans}>
@@ -145,6 +179,13 @@ export default class customer extends Component{
 
                 <Details />
                 <br/>
+                Select a reason to port : 
+                 <select ref={(select) => { this.reason = select; }}>
+                    <option value="Service Quality">Service Quality</option>
+                    <option value="Pricing">Pricing</option>
+                    <option value="Customer Service">Customer Service</option>
+                    <option value="Family on other Network">Family on other Network</option>
+                  </select> 
                 <Plans />
                 <br/>
                 <Button bsStyle = "success" onClick={this.userIni}> Submit</Button>

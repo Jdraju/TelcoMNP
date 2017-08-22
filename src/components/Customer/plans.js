@@ -6,8 +6,8 @@ import {Checkbox, CheckboxGroup} from 'react-checkbox-group';
 
 
 var products = [{
-      planID: 1,
-      serviceValidity: "Plan1",
+      planID: "PlanB",
+      serviceValidity: "unlimited",
       talktimeBalance: "unlimmited",
       sMSbalance: "Unlimmited",
       dataBalance: "2GB",
@@ -40,7 +40,7 @@ var products = [{
   ]
 
   var selectRowProp = {
-  mode: "checkbox",
+   mode: 'radio',
   clickToSelect: true,
   bgColor: "#b3ffb3" 
 };

@@ -76,28 +76,25 @@ export default class RR4 extends React.Component {
 
                 {/*Title Bar*/}
                 <div className={css(styles.titleBar)}>
-                    <div className={css(styles.ibmLogo)}>
-                        <img className={css(styles.ibmLogoPic)} src = '../Media/Picture1.png' height = '100px' width = '100px' />
-                    </div>
+                    {/*<div className={css(styles.ibmLogo)}>
+                        //<img className={css(styles.ibmLogoPic)} src = '../Media/Picture1.png' height = '100px' width = '100px' />
+                    </div> */}
                     <div className={css(styles.titleText)}>
                         <b>Mobile Number Portability</b>
                     </div>
                 </div>
 
-                {/*Navigation Bar*/}
-                
-
-                        
+                {/*Navigation Bar*/}         
                         <Router>
                             <div>
                                 <div className={css(styles.navBar1)}>
 
                                     <ul className={css(styles.menuBar)}>
-                                        <li className={css(styles.menuItem)}><Link to="/">Home</Link></li>
-                                        <li className={css(styles.menuItem)} onClick={this.customerF}><Link to="/Customer">Customer</Link></li>
-                                        <li className={css(styles.menuItem)} onClick={this.donorMNPGet} ><Link to="/DO">Donor CSP</Link></li>
-                                        <li className={css(styles.menuItem)} onClick={this.recepMNPGet}><Link to="/RO">Recipient CSP</Link></li>
-                                        <li className={css(styles.menuItem)}><Link to="/Regulator">Regulator</Link></li>
+                                        <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/">Home</Link></li>
+                                        <li className={css(styles.menuItem)} onClick={this.customerF}><Link className={css(styles.menuIcon)} to="/Customer">Customer</Link></li>
+                                        <li className={css(styles.menuItem)} onClick={this.donorMNPGet} ><Link className={css(styles.menuIcon)} to="/DO">Donor CSP</Link></li>
+                                        <li className={css(styles.menuItem)} onClick={this.recepMNPGet}><Link className={css(styles.menuIcon)} to="/RO">Recipient CSP</Link></li>
+                                        <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/Regulator">Regulator</Link></li>
 
                                     </ul>
                                 </div>

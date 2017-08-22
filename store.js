@@ -22,15 +22,26 @@ class Store {
   @observable trackmnp=false;
   @observable mnpexits=false;
   @observable nomnp=false;
+  @observable useracc=false;
 
 
    
 
 
    getUserData=async(num)=>{
-
+     this.data=[];
      let msdata = await request
       .get('//172.27.12.46:3000/api/MSISDN/num:'+num);
+     this.data = this.data.concat(JSON.parse(msdata.text));
+     console.log(this.data);
+     return 1
+
+   }
+
+      getUserData2=async(num)=>{
+     this.data=[];
+     let msdata = await request
+      .get('//172.27.12.46:3000/api/MSISDN/'+num);
      this.data = this.data.concat(JSON.parse(msdata.text));
      console.log(this.data);
      return 1
@@ -99,7 +110,11 @@ class Store {
 
    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-   userinimnp=async(num)=>{
+   userinimnp=async(num,r)=>{
+
+     //var today = new Date();
+     //var date = today.getFullYear()+'-'+(today.getMonth()+2)+'-'+today.getDate();
+     //var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(); 
      let msdata = await request
       .post('//172.27.12.46:3000/api/MNPREC')
       .type('form')
@@ -120,14 +135,17 @@ class Store {
                                 },
                               plannew: {
                                 $class: "org.acme.sample.Plan",
-                                PlanId: "",
-                                ServiceValidity: "",
-                                TalktimeBalance: "",
-                                SMSbalance: "",
-                                DataBalance: "",
-                                Price: ""
-                                },
-                              status: "User Initiation"
+                                PlanId: "PlanB",
+                                ServiceValidity: "unlimmited",
+                                TalktimeBalance: "unlimited",
+                                SMSbalance: "unlimited",
+                                DataBalance: "2GB",
+                                Price: "120$"
+                              },
+                              reason:r,
+                              starttime:"testtime2",
+                              status: "User Confirmation"
+
 
         
 
@@ -168,13 +186,14 @@ let msdata = await request
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-donorapproves=async()=>{
+donorapproves=async(mnpid)=>{
+  console.log(mnpid);
 let msdata = await request
       .post('//172.27.12.46:3000/api/UsageDetailsFromDonorCSP')
       .type('form')
       .send({
                               $class: "org.acme.sample.UsageDetailsFromDonorCSP",
-                              asset: "resource:org.acme.sample.MNPREC#mnp124",
+                              asset: "resource:org.acme.sample.MNPREC#"+mnpid,
                               plancurr: {
                                 $class: "org.acme.sample.Plan",
                                 PlanId: "PlanA",
@@ -196,13 +215,13 @@ let msdata = await request
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-recipientoffer=async()=>{
+recipientoffer=async(mnpid)=>{
 let msdata = await request
       .post('//172.27.12.46:3000/api/RecipientCSPOffer')
       .type('form')
       .send({
                               $class: "org.acme.sample.RecipientCSPOffer",
-                              asset: "resource:org.acme.sample.MNPREC#mnp124",
+                              asset: "resource:org.acme.sample.MNPREC#"+mnpid,
                               cspnew: "resource:org.acme.sample.CSP#name:XYZ",
                               plannew: {
                                 $class: "org.acme.sample.Plan",
@@ -225,13 +244,13 @@ let msdata = await request
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-useraccepts=async()=>{
+useraccepts=async(mnpid)=>{
 let msdata = await request
       .post('//172.27.12.46:3000/api/UserAccept')
       .type('form')
       .send({
                               $class: "org.acme.sample.UserAccept",
-                              asset: "resource:org.acme.sample.MNPREC#mnp124",
+                              asset: "resource:org.acme.sample.MNPREC#"+mnpid,
                               status: "User Accepts"
 
           })
@@ -263,9 +282,10 @@ let msdata = await request
   constructor (isServer) {
 
    this.showplans=false;
-   this.trackmnp=false
-   this.mnpexits=false;;
-   this.nomnp=false;;
+   this.trackmnp=false;
+   this.mnpexits=false;
+   this.nomnp=false;
+   this.useracc=false;;
     //var usernum = document.getElementById('usernum');
     //usernum.onclick=this.props.store.getUserData;
 /*
