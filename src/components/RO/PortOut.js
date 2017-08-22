@@ -33,10 +33,13 @@ onClickProductSelected(cell, row, rowIndex){
   }
 
 
-    donorApprove=() => {
+    recepApprove=async() => {
         console.log(this.mnprecid);
-     this.props.store.donorapproves(this.mnprecid);
+     let a= await this.props.store.donorapproves(this.mnprecid);
+     let aa= await this.props.store.getMNPRecAll('recep');
+     this.simpleDialog.hide();
    console.log('Aman');
+   //window.location.reload();
    }
   
   cellButton(cell, row, enumObject, rowIndex) {
@@ -88,7 +91,7 @@ onClickProductSelected(cell, row, rowIndex){
 
                 <SkyLight hideOnOverlayClicked ref={(input) => { this.simpleDialog = input; }} title="Customer {rowIndex}">
                     <Ticket/>
-                <Button bsStyle = "success" onClick={this.donorApprove}> Approve</Button>
+                <Button bsStyle = "success" onClick={this.recepApprove}> Approve</Button>
                 </SkyLight>
 
             </div>     
