@@ -8,6 +8,9 @@ import { styles } from './components/styles.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Provider,observer } from 'mobx-react';
 import { initStore } from '../store';
+import { Button,DropdownButton,MenuItem } from 'react-bootstrap';
+
+
 
 //Icons
 import HomeI from 'react-icons/lib/fa/home';
@@ -104,18 +107,21 @@ export default class RR4 extends React.Component {
                                         <li className={css(styles.menuItem)} onClick={this.donorMNPGet} ><Link className={css(styles.menuIcon)} to="/DO"><DOI/>  Donor CSP</Link></li>
                                         <li className={css(styles.menuItem)} onClick={this.recepMNPGet}><Link className={css(styles.menuIcon)} to="/RO"><ROI/>  Recipient CSP</Link></li>
                                         <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/Regulator"><RGI/>  Regulator</Link></li>
-
+                                        <DropdownButton title={"Test"} id={"1"}className={css(styles.dropDown)}>
+                                            <MenuItem eventKey="1">Action</MenuItem>
+                                        </DropdownButton>
                                     </ul>
-                                </div>
-                                <div className={css(styles.indexContent)}>
-
                                     
+                                </div>
+                                
+                                <div className={css(styles.indexContent)}>
                                     <Route exact path ="/" render={this.renderHome}/>
                                     <Route path ="/Customer" render={this.renderCustomer}/>
                                     <Route path ="/DO" render={this.renderDonor}/>
                                     <Route path ="/RO" render={this.renderRecipent}/>
                                     <Route path ="/Regulator" render={this.renderRegulator}/>
                                 </div>
+                                
                             </div>
                         </Router>
                     

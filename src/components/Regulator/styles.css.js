@@ -28,7 +28,7 @@ customerPlans:{
     padding:'10px',
 },
 PortR:{
-    height: '260px',
+    height: '350px',
     width:'33%',
     //boxShadow: '2px 0px 2px 2px #888888',
     //padding:'10px',
