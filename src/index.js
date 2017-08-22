@@ -107,11 +107,10 @@ export default class RR4 extends React.Component {
                                         <li className={css(styles.menuItem)} onClick={this.donorMNPGet} ><Link className={css(styles.menuIcon)} to="/DO"><DOI/>  Donor CSP</Link></li>
                                         <li className={css(styles.menuItem)} onClick={this.recepMNPGet}><Link className={css(styles.menuIcon)} to="/RO"><ROI/>  Recipient CSP</Link></li>
                                         <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/Regulator"><RGI/>  Regulator</Link></li>
-                                        <DropdownButton title={"Test"} id={"1"}className={css(styles.dropDown)}>
-                                            <MenuItem eventKey="1">Action</MenuItem>
-                                        </DropdownButton>
                                     </ul>
-                                    
+                                    <DropdownButton title={<HomeI/>} id={"1"}className={css(styles.dropDown)}>
+                                        <MenuItem eventKey="1">Action</MenuItem>
+                                    </DropdownButton>
                                 </div>
                                 
                                 <div className={css(styles.indexContent)}>
