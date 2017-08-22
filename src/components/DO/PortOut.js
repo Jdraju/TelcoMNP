@@ -33,10 +33,13 @@ onClickProductSelected(cell, row, rowIndex){
   }
 
 
-    donorApprove=() => {
+    donorApprove=async() => {
         console.log(this.mnprecid);
-     this.props.store.donorapproves(this.mnprecid);
+     let a= await this.props.store.donorapproves(this.mnprecid);
+     let aa= await this.props.store.getMNPRecAll('donor');
+     this.simpleDialog.hide();
    console.log('Aman');
+   //window.location.reload();
    }
   
   cellButton(cell, row, enumObject, rowIndex) {
