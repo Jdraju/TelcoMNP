@@ -97,6 +97,11 @@ navBar1: {
     margin: '2px',
 },
 
+dropdown:{
+    backgroundColor:'silver',
+    opacity:'.2',
+},
+
 //content
 indexContent:{
     height:'90%',

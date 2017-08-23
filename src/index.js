@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Provider,observer } from 'mobx-react';
 import { initStore } from '../store';
 import { Button,DropdownButton,MenuItem } from 'react-bootstrap';
-
+import Loading from 'react-loading-animation';
 
 
 //Icons
@@ -18,7 +18,7 @@ import CustI from 'react-icons/lib/fa/user';
 import DOI from 'react-icons/lib/fa/phone-square';
 import ROI from 'react-icons/lib/fa/phone';
 import RGI from 'react-icons/lib/fa/user-secret';
-
+import Reset from 'react-icons/lib/fa/align-justify';
 
 //Import Components
 import Customer from './components/Customer/customer';
@@ -26,7 +26,7 @@ import Donor from './components/DO/donor';
 import Recipent from './components/RO/recipient';
 import Regulator from './components/Regulator/regulator';
 import Home from './components/Home/home';
-
+import Load from './components/Loading/loading';
 
 
 
@@ -81,6 +81,10 @@ export default class RR4 extends React.Component {
         return <Regulator />;
     }
 
+    renderLoad = () => {
+        return <Load />;
+    }
+
 
     render() {
         return (<Provider store={this.store}>
@@ -108,8 +112,8 @@ export default class RR4 extends React.Component {
                                         <li className={css(styles.menuItem)} onClick={this.recepMNPGet}><Link className={css(styles.menuIcon)} to="/RO"><ROI/>  Recipient CSP</Link></li>
                                         <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/Regulator"><RGI/>  Regulator</Link></li>
                                     </ul>
-                                    <DropdownButton title={<HomeI/>} id={"1"}className={css(styles.dropDown)}>
-                                        <MenuItem eventKey="1">Action</MenuItem>
+                                    <DropdownButton title={<Reset/>} id={"1"}className={css(styles.dropdown)}>
+                                        <MenuItem eventKey="1">Reset Demo</MenuItem>
                                     </DropdownButton>
                                 </div>
                                 
@@ -119,6 +123,7 @@ export default class RR4 extends React.Component {
                                     <Route path ="/DO" render={this.renderDonor}/>
                                     <Route path ="/RO" render={this.renderRecipent}/>
                                     <Route path ="/Regulator" render={this.renderRegulator}/>
+                                    <Route path ="/Loading" render={this.renderLoad}/>
                                 </div>
                                 
                             </div>
