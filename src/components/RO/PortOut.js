@@ -72,7 +72,7 @@ onClickProductSelected(cell, row, rowIndex){
     
         
             let popup=async(num,recid) => {
-                 let a = await this.props.store.getUserData2(num.split('#')[1]);
+                 let a = await this.props.store.getUserData(num);
                  this.mnprecid=recid;
                  this.simpleDialog.show();
                } 
@@ -89,7 +89,7 @@ onClickProductSelected(cell, row, rowIndex){
                     <TableHeaderColumn dataField='button' dataFormat={this.cellButton.bind(this)}>Action</TableHeaderColumn>
                 </BootstrapTable>
 
-                <SkyLight hideOnOverlayClicked ref={(input) => { this.simpleDialog = input; }} title="Customer {rowIndex}">
+                <SkyLight hideOnOverlayClicked ref={(input) => { this.simpleDialog = input; }} title="">
                     <Ticket/>
                 <Button bsStyle = "success" onClick={this.recepApprove}> Approve</Button>
                 </SkyLight>

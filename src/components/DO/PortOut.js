@@ -42,8 +42,11 @@ onClickProductSelected(cell, row, rowIndex){
    //window.location.reload();
    }
   
+
+
   cellButton(cell, row, enumObject, rowIndex) {
     if(row['status']=='User Confirmation'){
+
   	return (
         <button type="button" 
             onClick={() => 
@@ -52,7 +55,11 @@ onClickProductSelected(cell, row, rowIndex){
         </button>
     )
     }
-  }
+else{
+
+}  
+
+}
 
 
     render() {
@@ -69,16 +76,18 @@ onClickProductSelected(cell, row, rowIndex){
       console.log(row['user']+'  '+row['recid']);
       popup(row['user'],row['recid']);
     }
+
     
         
             let popup=async(num,recid) => {
-                 let a = await this.props.store.getUserData2(num.split('#')[1]);
+                 let a = await this.props.store.getUserData(num);
                  this.mnprecid=recid;
                  this.simpleDialog.show();
                } 
         
 
         return(
+
             <div>
                 <h4>Port Out</h4>
                 <BootstrapTable data={ this.props.store.dataDonorOut } selectRow={selectRowProp} striped hover condensed>
@@ -89,7 +98,7 @@ onClickProductSelected(cell, row, rowIndex){
                     <TableHeaderColumn dataField='button' dataFormat={this.cellButton.bind(this)}>Action</TableHeaderColumn>
                 </BootstrapTable>
 
-                <SkyLight hideOnOverlayClicked ref={(input) => { this.simpleDialog = input; }} title="Customer {rowIndex}">
+                <SkyLight hideOnOverlayClicked ref={(input) => { this.simpleDialog = input; }} title="">
                     <Ticket/>
                 <Button bsStyle = "success" onClick={this.donorApprove}> Approve</Button>
                 </SkyLight>

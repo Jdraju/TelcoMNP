@@ -16,6 +16,7 @@ class Store {
   @observable dataDonorIn=[];
   @observable dataRecepOut=[];
   @observable dataRecepIn=[];
+  @observable sigimg="../../media/nosignal.png";
 
 
   @observable showplans=false;
@@ -23,6 +24,7 @@ class Store {
   @observable mnpexits=false;
   @observable nomnp=false;
   @observable useracc=false;
+  @observable currnum="4696058208";
 
 
    
@@ -32,33 +34,31 @@ class Store {
      this.data=[];
      let msdata = await request
       .get('//172.27.12.46:3000/api/MSISDN/num:'+num);
-     this.data = this.data.concat(JSON.parse(msdata.text));
+      let temp = JSON.parse(msdata.text);
+      temp.num=temp.num.split(':')[1];
+      temp.servpro=temp.servpro.split('#')[1].split(':')[1];
+     this.data = this.data.concat(temp);
+     this.currnum=num;
      console.log(this.data);
      return 1
 
    }
 
-      getUserData2=async(num)=>{
-     this.data=[];
-     let msdata = await request
-      .get('//172.27.12.46:3000/api/MSISDN/'+num);
-     this.data = this.data.concat(JSON.parse(msdata.text));
-     console.log(this.data);
-     return 1
-
-   }
 
    mnpExitsCheck= async (num) =>{
      this.mnpMatch=false;
      let msdata = await request
       .get('//172.27.12.46:3000/api/MNPREC');
       for(var i=0;i<JSON.parse(msdata.text).length;i++){
-       
-        if(JSON.parse(msdata.text)[i].user=='resource:org.acme.sample.MSISDN#num:'+num)
+        let temp = JSON.parse(msdata.text)[i];
+           temp.user=temp.user.split('#')[1].split(':')[1];
+           temp.cspold=temp.cspold.split('#')[1].split(':')[1];
+           temp.cspnew=temp.cspnew.split('#')[1].split(':')[1];
+        if(temp.user==num)
         {
           console.log("match");
           this.data2=[];
-          this.data2 = this.data2.concat(JSON.parse(msdata.text)[i]);
+          this.data2 = this.data2.concat(temp);
           this.mnpMatch=true;
           return true;
         }
@@ -76,13 +76,17 @@ class Store {
         this.dataDonorIn=[];
         console.log(JSON.parse(msdata.text).length);
         for(var i=0;i<JSON.parse(msdata.text).length;i++){
-        if(JSON.parse(msdata.text)[i].cspold=="resource:org.acme.sample.CSP#name:ABC")
+          let temp = JSON.parse(msdata.text)[i];
+           temp.user=temp.user.split('#')[1].split(':')[1];
+           temp.cspold=temp.cspold.split('#')[1].split(':')[1];
+           temp.cspnew=temp.cspnew.split('#')[1].split(':')[1];
+        if(temp.cspold=="ABC")
          {
-           this.dataDonorOut = this.dataDonorOut.concat(JSON.parse(msdata.text)[i]);
+           this.dataDonorOut = this.dataDonorOut.concat(temp);
          }
-        else if(JSON.parse(msdata.text)[i].cspnew=="resource:org.acme.sample.CSP#name:ABC")
+        else if(temp.cspnew=="ABC")
         {
-          this.dataDonorIn = this.dataDonorIn.concat(JSON.parse(msdata.text)[i]);
+          this.dataDonorIn = this.dataDonorIn.concat(temp);
         }
 
       }
@@ -92,13 +96,17 @@ class Store {
         this.dataRecepOut=[];
         this.dataRecepIn=[];
         for(var i=0;i<JSON.parse(msdata.text).length;i++){
-        if(JSON.parse(msdata.text)[i].cspold=="resource:org.acme.sample.CSP#name:XYZ")
+          let temp = JSON.parse(msdata.text)[i];
+           temp.user=temp.user.split('#')[1].split(':')[1];
+           temp.cspold=temp.cspold.split('#')[1].split(':')[1];
+           temp.cspnew=temp.cspnew.split('#')[1].split(':')[1];
+        if(temp.cspold=="XYZ")
          {
-           this.dataRecepOut = this.dataRecepOut.concat(JSON.parse(msdata.text)[i]);
+           this.dataRecepOut = this.dataRecepOut.concat(temp);
          }
-        else if(JSON.parse(msdata.text)[i].cspnew=="resource:org.acme.sample.CSP#name:XYZ")
+        else if(temp.cspnew=="XYZ")
         {
-          this.dataRecepIn = this.dataRecepIn.concat(JSON.parse(msdata.text)[i]);
+          this.dataRecepIn = this.dataRecepIn.concat(temp);
         }
 
       }
@@ -115,6 +123,18 @@ class Store {
      //var today = new Date();
      //var date = today.getFullYear()+'-'+(today.getMonth()+2)+'-'+today.getDate();
      //var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(); 
+      let msdata1 = await request
+      .get('//172.27.12.46:3000/api/MSISDN/num:'+num);
+      let temp = JSON.parse(msdata1.text);
+      let cspo=temp.servpro;
+      let cspn='NA';
+      if(temp.servpro=="resource:org.acme.sample.CSP#name:ABC"){
+        cspn='resource:org.acme.sample.CSP#name:XYZ';
+      }
+      else{
+        cspn='resource:org.acme.sample.CSP#name:ABC';
+      }
+
      let msdata = await request
       .post('//172.27.12.46:3000/api/MNPREC')
       .type('form')
@@ -122,8 +142,8 @@ class Store {
                               $class: "org.acme.sample.MNPREC",
                               recid: "mnp"+num,
                               user: "resource:org.acme.sample.MSISDN#num:"+num,
-                              cspold: "resource:org.acme.sample.CSP#name:ABC",
-                              cspnew: "resource:org.acme.sample.CSP#name:XYZ",
+                              cspold: cspo,
+                              cspnew: cspn,
                               planold: {
                                 $class: "org.acme.sample.Plan",
                                 PlanId: "",
@@ -215,7 +235,7 @@ let msdata = await request
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-recipientoffer=async(mnpid)=>{
+recipientoffer=async(mnpid,plan)=>{
 let msdata = await request
       .post('//172.27.12.46:3000/api/RecipientCSPOffer')
       .type('form')
@@ -225,7 +245,7 @@ let msdata = await request
                               cspnew: "resource:org.acme.sample.CSP#name:XYZ",
                               plannew: {
                                 $class: "org.acme.sample.Plan",
-                                PlanId: "PlanB",
+                                PlanId: plan,
                                 ServiceValidity: "2",
                                 TalktimeBalance: "2",
                                 SMSbalance: "2",
@@ -261,14 +281,27 @@ let msdata = await request
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-simactivate=async()=>{
+simactivate=async(num)=>{
+
+let msdata1 = await request
+      .get('//172.27.12.46:3000/api/MSISDN/num:'+num);
+      let temp = JSON.parse(msdata1.text);
+      let cspo=temp.servpro;
+      let cspn='NA';
+      if(temp.servpro=="resource:org.acme.sample.CSP#name:ABC"){
+        cspn='resource:org.acme.sample.CSP#name:XYZ';
+      }
+      else{
+        cspn='resource:org.acme.sample.CSP#name:ABC';
+      }
+
 let msdata = await request
       .post('//172.27.12.46:3000/api/SimActivated')
       .type('form')
       .send({
                               $class: "org.acme.sample.SimActivated",
-                              "asset": "resource:org.acme.sample.MSISDN#num:8318",
-                              "cspnew": "resource:org.acme.sample.CSP#name:4408"
+                              "asset": "resource:org.acme.sample.MSISDN#num:"+num,
+                              "cspnew": cspn
 
         
 

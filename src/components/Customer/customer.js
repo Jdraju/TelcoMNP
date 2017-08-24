@@ -63,8 +63,23 @@ export default class customer extends Component{
    }
 
 
-     userAccepts=() => {
-     this.props.store.useraccepts(this.mnprecid);
+     userAccepts=async() => {
+     let a = await this.props.store.useraccepts(this.mnprecid);
+     let aaa= await this.props.store.mnpExitsCheck(this.usernum.value);
+    console.log(aaa);
+   this.resetView();
+   if(aaa){
+    this.props.store.trackmnp=true;
+    this.mnprecid=this.props.store.data2[0].recid;
+    console.log(this.props.store.data2[0].status);
+    if(this.props.store.data2[0].status=="Recipient Offer"){
+        this.props.store.useracc=true;
+    }
+
+   }
+  else{
+    this.props.store.nomnp=true;
+  } 
    }
 
 
@@ -154,6 +169,7 @@ export default class customer extends Component{
                   <p>  Below is the Mobile Number Portability request for your number:</p></ToggleDisplay> 
                 <ToggleDisplay show={this.props.store.nomnp}>
                    <p>There is no current Mobile Number Porting Request for this number</p></ToggleDisplay> 
+               
 
             </div>
 

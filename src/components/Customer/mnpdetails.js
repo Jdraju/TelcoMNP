@@ -19,6 +19,10 @@ export default class mnpdetails extends Component{
 
 
     render() {
+
+        function nameFormatter(data, cell) {
+        return '<p>'+cell[data]+'</p>';
+        }
         return(
             <div>
                 <BootstrapTable data={ this.props.store.data2 } striped hover condensed>
@@ -26,8 +30,8 @@ export default class mnpdetails extends Component{
                     <TableHeaderColumn dataField='user' isKey>Number</TableHeaderColumn>
                     <TableHeaderColumn dataField='cspold'>Current CSP</TableHeaderColumn>
                     <TableHeaderColumn dataField='cspnew'>New CSP</TableHeaderColumn>
-                    <TableHeaderColumn dataField='planold.PlanID'>Old Plan</TableHeaderColumn>
-                    <TableHeaderColumn dataField='plannew.PlanID'>New Plan</TableHeaderColumn>
+                    <TableHeaderColumn dataField='planold' dataFormat={ nameFormatter.bind(this, 'PlanId') }>Old Plan</TableHeaderColumn>
+                    <TableHeaderColumn dataField='plannew'  dataFormat={ nameFormatter.bind(this, 'PlanId') }>New Plan</TableHeaderColumn>
                     <TableHeaderColumn dataField='status'>Status</TableHeaderColumn>
                    
                 </BootstrapTable>
