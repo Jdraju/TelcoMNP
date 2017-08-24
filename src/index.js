@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Provider,observer } from 'mobx-react';
 import { initStore } from '../store';
 import { Button,DropdownButton,MenuItem } from 'react-bootstrap';
-
+import Loading from 'react-loading-animation';
 
 
 //Icons
@@ -18,7 +18,7 @@ import CustI from 'react-icons/lib/fa/user';
 import DOI from 'react-icons/lib/fa/phone-square';
 import ROI from 'react-icons/lib/fa/phone';
 import RGI from 'react-icons/lib/fa/user-secret';
-
+import Reset from 'react-icons/lib/fa/align-justify';
 
 //Import Components
 import Customer from './components/Customer/customer';
@@ -27,7 +27,8 @@ import Recipent from './components/RO/recipient';
 import Regulator from './components/Regulator/regulator';
 import Home from './components/Home/home';
 import SimInsert from './components/SimInsert/sim';
-
+import Load from './components/Loading/loading';
+import Blocks from './components/Blocks/blocks';
 
 
 
@@ -86,6 +87,10 @@ export default class RR4 extends React.Component {
         return <SimInsert />;
     }
 
+    renderLoad = () => {
+        return <Load />;
+    }
+
 
     render() {
         return (<Provider store={this.store}>
@@ -102,6 +107,7 @@ export default class RR4 extends React.Component {
                 </div>
 
                 {/*Navigation Bar*/}         
+
                         <Router>
                             <div>
                                 <div className={css(styles.navBar1)}>
@@ -127,14 +133,18 @@ export default class RR4 extends React.Component {
                                     <Route path ="/RO" render={this.renderRecipent}/>
                                     <Route path ="/Regulator" render={this.renderRegulator}/>
                                     <Route path ="/SimInsert" render={this.renderSimInsert}/>
+                                    <Route path ="/Loading" render={this.renderLoad}/>
                                 </div>
-                                
+                                 <Button>View Blocks</Button>
+                              <Blocks/>
                             </div>
                         </Router>
                     
-                    {/* Content*/}
+                  
+           
+                
             </div>
-            </Provider>
+        </Provider>
         );
     }
 }
