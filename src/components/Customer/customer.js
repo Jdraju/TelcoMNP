@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { css } from 'aphrodite'
 import { styles } from './styles.css'
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-import { Button } from 'react-bootstrap';
+import { Button, FormGroup } from 'react-bootstrap';
 import Plans from './plans';
 import Details from './details';
 import MNPDetails from './mnpdetails';
@@ -50,6 +50,9 @@ export default class customer extends Component{
         this.user="";
     }
      
+
+
+
 
 
  resetView(){
@@ -143,7 +146,10 @@ export default class customer extends Component{
             <div className={css(styles.customerIdent)}>
                  <ToggleDisplay show={!this.props.store.showplans}>
                 <p> To check eligibility, enter your phone number.<br/> During this process you will have to provide additional information to establish your identity.</p>
-                Enter # to check Eligibility:<input ref={(input) => { this.usernum = input; }} /> <button onClick={this.checkEligible}>Check Eligibility</button> <button onClick={this.track}>Track</button></ToggleDisplay>
+                Enter # to check Eligibility:
+                {/*<form><FormGroup controlId="formBasicText"validationState={this.getValidationState()}></FormGroup></form>*/}
+
+                <input ref={(input) => { this.usernum = input; }} /> <button onClick={this.checkEligible}>Check Eligibility</button> <button onClick={this.track}>Track</button></ToggleDisplay>
                 <ToggleDisplay show={this.props.store.showplans}>
                 <p> Congrats !! You are eligible to port to a new operator</p>
                 Please select a plan and submit:</ToggleDisplay> 

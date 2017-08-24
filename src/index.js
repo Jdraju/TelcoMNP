@@ -27,7 +27,7 @@ import Recipent from './components/RO/recipient';
 import Regulator from './components/Regulator/regulator';
 import Home from './components/Home/home';
 import Load from './components/Loading/loading';
-
+import Blocks from './components/Blocks/blocks';
 
 
 
@@ -101,37 +101,37 @@ export default class RR4 extends React.Component {
                 </div>
 
                 {/*Navigation Bar*/}         
-                        <Router>
-                            <div>
-                                <div className={css(styles.navBar1)}>
+                <Router>
+                    <div>
+                        <div className={css(styles.navBar1)}>
 
-                                    <ul className={css(styles.menuBar)}>
-                                        <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/"><HomeI/>  Home</Link></li>
-                                        <li className={css(styles.menuItem)} onClick={this.customerF}><Link className={css(styles.menuIcon)} to="/Customer"><CustI/>  Customer</Link></li>
-                                        <li className={css(styles.menuItem)} onClick={this.donorMNPGet} ><Link className={css(styles.menuIcon)} to="/DO"><DOI/>  Donor CSP</Link></li>
-                                        <li className={css(styles.menuItem)} onClick={this.recepMNPGet}><Link className={css(styles.menuIcon)} to="/RO"><ROI/>  Recipient CSP</Link></li>
-                                        <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/Regulator"><RGI/>  Regulator</Link></li>
-                                    </ul>
-                                    <DropdownButton title={<Reset/>} id={"1"}className={css(styles.dropdown)}>
-                                        <MenuItem eventKey="1">Reset Demo</MenuItem>
-                                    </DropdownButton>
-                                </div>
-                                
-                                <div className={css(styles.indexContent)}>
-                                    <Route exact path ="/" render={this.renderHome}/>
-                                    <Route path ="/Customer" render={this.renderCustomer}/>
-                                    <Route path ="/DO" render={this.renderDonor}/>
-                                    <Route path ="/RO" render={this.renderRecipent}/>
-                                    <Route path ="/Regulator" render={this.renderRegulator}/>
-                                    <Route path ="/Loading" render={this.renderLoad}/>
-                                </div>
-                                
-                            </div>
-                        </Router>
-                    
-                    {/* Content*/}
+                            <ul className={css(styles.menuBar)}>
+                                <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/"><HomeI/>  Home</Link></li>
+                                <li className={css(styles.menuItem)} onClick={this.customerF}><Link className={css(styles.menuIcon)} to="/Customer"><CustI/>  Customer</Link></li>
+                                <li className={css(styles.menuItem)} onClick={this.donorMNPGet} ><Link className={css(styles.menuIcon)} to="/DO"><DOI/>  Donor CSP</Link></li>
+                                <li className={css(styles.menuItem)} onClick={this.recepMNPGet}><Link className={css(styles.menuIcon)} to="/RO"><ROI/>  Recipient CSP</Link></li>
+                                <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/Regulator"><RGI/>  Regulator</Link></li>
+                            </ul>
+                            <DropdownButton title={<Reset/>} id={"1"}className={css(styles.dropdown)}>
+                                <MenuItem eventKey="1">Reset Demo</MenuItem>
+                            </DropdownButton>
+                        </div>
+
+                        {/*Content*/}
+                        <div className={css(styles.indexContent)}>
+                            <Route exact path ="/" render={this.renderHome}/>
+                            <Route path ="/Customer" render={this.renderCustomer}/>
+                            <Route path ="/DO" render={this.renderDonor}/>
+                            <Route path ="/RO" render={this.renderRecipent}/>
+                            <Route path ="/Regulator" render={this.renderRegulator}/>
+                            <Route path ="/Loading" render={this.renderLoad}/>
+                        </div>
+                        <Button>View Blocks</Button>
+                        <Blocks/>
+                    </div>
+                </Router>
             </div>
-            </Provider>
+        </Provider>
         );
     }
 }
