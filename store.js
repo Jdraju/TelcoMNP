@@ -16,6 +16,8 @@ class Store {
   @observable dataDonorIn=[];
   @observable dataRecepOut=[];
   @observable dataRecepIn=[];
+  @observable blocks=[];
+   @observable currblock=[];
   @observable sigimg="../../media/nosignal.png";
 
 
@@ -24,6 +26,8 @@ class Store {
   @observable mnpexits=false;
   @observable nomnp=false;
   @observable useracc=false;
+  @observable userfail=false;
+  @observable mnpcomplete=false;
   @observable currnum="4696058208";
 
 
@@ -32,15 +36,27 @@ class Store {
 
    getUserData=async(num)=>{
      this.data=[];
+     try{
      let msdata = await request
       .get('//172.27.12.46:3000/api/MSISDN/num:'+num);
+      //console.log(msdata);
+    //let contentType = msdata.headers.get("content-type");
+    
+
+    
       let temp = JSON.parse(msdata.text);
       temp.num=temp.num.split(':')[1];
       temp.servpro=temp.servpro.split('#')[1].split(':')[1];
      this.data = this.data.concat(temp);
      this.currnum=num;
      console.log(this.data);
-     return 1
+     return true;
+     }
+     catch(Error)
+     {
+        console.log('Error');
+        return false;
+     }
 
    }
 
@@ -170,6 +186,8 @@ class Store {
         
 
       })
+      let t = JSON.parse(msdata.text);
+      this.blocks=this.blocks.concat(t);
    
      return 1
    }
@@ -200,7 +218,8 @@ let msdata = await request
 
       })
    
-
+      let t = JSON.parse(msdata.text);
+      this.blocks=this.blocks.concat(t);
      return 1
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -228,6 +247,12 @@ let msdata = await request
         
 
       })
+      let t = JSON.parse(msdata.text);
+      if(t.plancurr)
+         {
+             t.plancurr=t.plancurr.PlanId;
+         }
+      this.blocks=this.blocks.concat(t);
    
 
      return 1
@@ -257,6 +282,8 @@ let msdata = await request
         
 
       })
+      let t = JSON.parse(msdata.text);
+      this.blocks=this.blocks.concat(t);
    
 
      return 1
@@ -275,7 +302,8 @@ let msdata = await request
 
           })
    
-
+    let t = JSON.parse(msdata.text);
+      this.blocks=this.blocks.concat(t);
      return 1
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -307,7 +335,8 @@ let msdata = await request
 
       })
    
-
+     let t = JSON.parse(msdata.text);
+      this.blocks=this.blocks.concat(t);
      return 1
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -318,7 +347,11 @@ let msdata = await request
    this.trackmnp=false;
    this.mnpexits=false;
    this.nomnp=false;
-   this.useracc=false;;
+   this.useracc=false;
+   this.userfail=false;
+   this.mnpcomplete=false;
+   
+  
     //var usernum = document.getElementById('usernum');
     //usernum.onclick=this.props.store.getUserData;
 /*

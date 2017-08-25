@@ -10,7 +10,7 @@ import { Provider,observer } from 'mobx-react';
 import { initStore } from '../store';
 import { Button,DropdownButton,MenuItem } from 'react-bootstrap';
 import Loading from 'react-loading-animation';
-
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 //Icons
 import HomeI from 'react-icons/lib/fa/home';
@@ -49,7 +49,21 @@ export default class RR4 extends React.Component {
     constructor(props) {
         super(props);
         this.store = initStore(props.isServer);
+        this.state = {isShow:false};
+        
 
+    }
+
+    showBlocks=()=>{
+        console.log('button works');
+        if (this.state.isShow)
+        {console.log('button works2');
+            this.setState({ isShow: false });
+        }
+        else{console.log('button works3');
+           this.setState({ isShow: true }); 
+        }
+        
     }
 
     customerF=()=>{
@@ -90,9 +104,21 @@ export default class RR4 extends React.Component {
     renderLoad = () => {
         return <Load />;
     }
+    renderBlocks = () => {
+        return <Blocks />;
+    }
+
+    SlideBox() {
+          return (
+           <Blocks/>
+              )
+           }
 
 
     render() {
+
+       let blockcomponent = this.state.isShow ? this.SlideBox() : '';
+       
         return (<Provider store={this.store}>
             <div className={css(styles.pageWrap)}>
 
@@ -118,12 +144,12 @@ export default class RR4 extends React.Component {
                                         <li className={css(styles.menuItem)} onClick={this.donorMNPGet} ><Link className={css(styles.menuIcon)} to="/DO"><DOI/>  Donor CSP</Link></li>
                                         <li className={css(styles.menuItem)} onClick={this.recepMNPGet}><Link className={css(styles.menuIcon)} to="/RO"><ROI/>  Recipient CSP</Link></li>
                                         <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/Regulator"><RGI/>  Regulator</Link></li>
-                                         <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/SimInsert"><RGI/>  SimInsert</Link></li>
-                                        <DropdownButton title={"Test"} id={"1"}className={css(styles.dropDown)}>
-                                            <MenuItem eventKey="1">Action</MenuItem>
-                                        </DropdownButton>
+                                        <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/SimInsert"><RGI/>  SimInsert</Link></li>
+                                        <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/Blocks"><RGI/>  Block View</Link></li>
                                     </ul>
-                                    
+                                    <DropdownButton title={<Reset/>} id={"1"}className={css(styles.dropdown)}>
+                                <MenuItem eventKey="1">Reset Demo</MenuItem>
+                            </DropdownButton>
                                 </div>
                                 
                                 <div className={css(styles.indexContent)}>
@@ -134,9 +160,24 @@ export default class RR4 extends React.Component {
                                     <Route path ="/Regulator" render={this.renderRegulator}/>
                                     <Route path ="/SimInsert" render={this.renderSimInsert}/>
                                     <Route path ="/Loading" render={this.renderLoad}/>
-                                </div>
-                                 <Button>View Blocks</Button>
-                              <Blocks/>
+                                    <Route path ="/Blocks" render={this.renderBlocks}/>
+                                
+
+                               {/* <CSSTransitionGroup
+                                    transitionName="slide"
+                                    transitionAppear={true}
+                                    transitionAppearTimeout={500}
+                                    transitionEnterTimeout={300}
+                                    transitionLeaveTimeout={300}
+                                     >
+                                    {blockcomponent}
+                                </CSSTransitionGroup>*/}
+                                  
+                               
+                               </div>
+
+                                 {/*<Button onClick={this.showBlocks}>View Blocks</Button>*/}
+                              
                             </div>
                         </Router>
                     
