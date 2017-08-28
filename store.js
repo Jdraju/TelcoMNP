@@ -12,6 +12,9 @@ class Store {
   @observable data=[];
   
   @observable data2=[];
+    @observable dataR=[];
+  
+  @observable data2R=[];
   @observable dataDonorOut=[];
   @observable dataDonorIn=[];
   @observable dataRecepOut=[];
@@ -28,6 +31,10 @@ class Store {
   @observable useracc=false;
   @observable userfail=false;
   @observable mnpcomplete=false;
+  @observable regshow1=false;
+  @observable regshow2=false;
+  @observable regshow3=false;
+  @observable regshow4=false;
   @observable currnum="4696058208";
 
 
@@ -48,6 +55,32 @@ class Store {
       temp.num=temp.num.split(':')[1];
       temp.servpro=temp.servpro.split('#')[1].split(':')[1];
      this.data = this.data.concat(temp);
+     this.currnum=num;
+     console.log(this.data);
+     return true;
+     }
+     catch(Error)
+     {
+        console.log('Error');
+        return false;
+     }
+
+   }
+
+      getUserDataR=async(num)=>{
+     this.dataR=[];
+     try{
+     let msdata = await request
+      .get('//172.27.12.46:3000/api/MSISDN/num:'+num);
+      //console.log(msdata);
+    //let contentType = msdata.headers.get("content-type");
+    
+
+    
+      let temp = JSON.parse(msdata.text);
+      temp.num=temp.num.split(':')[1];
+      temp.servpro=temp.servpro.split('#')[1].split(':')[1];
+     this.dataR = this.data.concat(temp);
      this.currnum=num;
      console.log(this.data);
      return true;
@@ -82,6 +115,48 @@ class Store {
       }
       return false;
    }
+
+
+      mnpExitsCheckR= async (num) =>{
+     this.mnpMatch=false;
+     let msdata = await request
+      .get('//172.27.12.46:3000/api/MNPREC');
+      for(var i=0;i<JSON.parse(msdata.text).length;i++){
+        let temp = JSON.parse(msdata.text)[i];
+           temp.user=temp.user.split('#')[1].split(':')[1];
+           temp.cspold=temp.cspold.split('#')[1].split(':')[1];
+           temp.cspnew=temp.cspnew.split('#')[1].split(':')[1];
+        if(temp.user==num)
+        {
+          console.log("match");
+          this.data2R=[];
+          this.data2R = this.data2.concat(temp);
+          this.mnpMatch=true;
+          return true;
+        }
+  
+      }
+      return false;
+   }
+
+
+
+   delMNPRecAll=async()=>{
+
+     let msdata = await request
+      .get('http://172.27.12.46:3000/api/MNPREC');
+
+        for(var i=0;i<JSON.parse(msdata.text).length;i++){
+          let temp = JSON.parse(msdata.text)[i];
+      
+          let msdel = await request.delete('http://172.27.12.46:3000/api/MNPREC/'+temp.recid);
+
+      }
+     return 1
+
+   }
+
+
 
    getMNPRecAll=async(csp)=>{
 
@@ -187,6 +262,18 @@ class Store {
 
       })
       let t = JSON.parse(msdata.text);
+      t.$class=t.$class.split('.')[3];
+       t.user=t.user.split('#')[1].split(':')[1];
+        t.cspnew=t.cspnew.split('#')[1].split(':')[1];
+         t.cspold=t.cspold.split('#')[1].split(':')[1];
+      if(t.plannew)
+         {
+             t.plannew=t.plannew.PlanId;
+         }
+      if(t.planold)
+         {
+             t.planold=t.planold.PlanId;
+         }
       this.blocks=this.blocks.concat(t);
    
      return 1
@@ -219,6 +306,8 @@ let msdata = await request
       })
    
       let t = JSON.parse(msdata.text);
+       t.$class=t.$class.split('.')[3];
+      t.asset=t.asset.split('#')[1];
       this.blocks=this.blocks.concat(t);
      return 1
 }
@@ -252,6 +341,8 @@ let msdata = await request
          {
              t.plancurr=t.plancurr.PlanId;
          }
+      t.$class=t.$class.split('.')[3];
+      t.asset=t.asset.split('#')[1];
       this.blocks=this.blocks.concat(t);
    
 
@@ -283,6 +374,12 @@ let msdata = await request
 
       })
       let t = JSON.parse(msdata.text);
+      t.$class=t.$class.split('.')[3];
+      t.asset=t.asset.split('#')[1];
+      if(t.plannew)
+         {
+             t.plannew=t.plannew.PlanId;
+         }
       this.blocks=this.blocks.concat(t);
    
 
@@ -303,6 +400,8 @@ let msdata = await request
           })
    
     let t = JSON.parse(msdata.text);
+     t.$class=t.$class.split('.')[3];
+      t.asset=t.asset.split('#')[1];
       this.blocks=this.blocks.concat(t);
      return 1
 }
@@ -336,6 +435,8 @@ let msdata = await request
       })
    
      let t = JSON.parse(msdata.text);
+      t.$class=t.$class.split('.')[3];
+      t.asset=t.asset.split('#')[1];
       this.blocks=this.blocks.concat(t);
      return 1
 }
@@ -350,6 +451,10 @@ let msdata = await request
    this.useracc=false;
    this.userfail=false;
    this.mnpcomplete=false;
+   this.regshow1=false;
+   this.regshow2=false;
+   this.regshow3=false;
+   this.regshow4=false;
    
   
     //var usernum = document.getElementById('usernum');

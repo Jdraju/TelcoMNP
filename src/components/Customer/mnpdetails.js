@@ -30,6 +30,7 @@ export default class mnpdetails extends Component{
                     <TableHeaderColumn dataField='user' isKey>Number</TableHeaderColumn>
                     <TableHeaderColumn dataField='cspold'>Current CSP</TableHeaderColumn>
                     <TableHeaderColumn dataField='cspnew'>New CSP</TableHeaderColumn>
+                    <TableHeaderColumn dataField='reason'>Reason</TableHeaderColumn>
                     <TableHeaderColumn dataField='planold' dataFormat={ nameFormatter.bind(this, 'PlanId') }>Old Plan</TableHeaderColumn>
                     <TableHeaderColumn dataField='plannew'  dataFormat={ nameFormatter.bind(this, 'PlanId') }>New Plan</TableHeaderColumn>
                     <TableHeaderColumn dataField='status'>Status</TableHeaderColumn>
