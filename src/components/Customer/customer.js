@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { css } from 'aphrodite'
 import { styles } from './styles.css'
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-import { Button, FormGroup } from 'react-bootstrap';
+import { Button, FormGroup,ControlLabel,FormControl,HelpBlock } from 'react-bootstrap';
 import Plans from './plans';
 import Details from './details';
 import MNPDetails from './mnpdetails';
@@ -45,12 +45,29 @@ export default class customer extends Component{
     constructor(props){
         super(props);
 
-        this.state = {term:''};
+        this.state = {term:'',value:''};
         this.mnprecid="";
         this.user="";
     }
      
+getInitialState() {
+    return {
+      value: 'null'
+    }
+  }
 
+getValidationState() {
+    const length = this.state.value.length;
+    if (length == 10) return 'success';
+    else if (length > 10) return 'warning';
+    else if (length > 0) return 'error';
+  }
+
+
+handleChange(e) {
+this.setState({ value: e.target.value });
+
+}
 
 
 
@@ -147,9 +164,20 @@ export default class customer extends Component{
                  <ToggleDisplay show={!this.props.store.showplans}>
                 <p> To check eligibility, enter your phone number.<br/> During this process you will have to provide additional information to establish your identity.</p>
                 Enter # to check Eligibility:
-                {/*<form><FormGroup controlId="formBasicText"validationState={this.getValidationState()}></FormGroup></form>*/}
-
-                <input ref={(input) => { this.usernum = input; }} /> <button onClick={this.checkEligible}>Check Eligibility</button> <button onClick={this.track}>Track</button></ToggleDisplay>
+                <form className={css(styles.customerInp)}>
+                    <FormGroup
+                    validationState={this.getValidationState()}>
+                    <FormControl
+                        type="text"
+                        value={this.state.value}
+                        placeholder="Enter Customer Phone Number"
+                        onChange={this.handleChange.bind(this)}
+                    />
+                    <FormControl.Feedback />
+                    </FormGroup>
+                </form>
+                <button onClick={this.checkEligible}>Check Eligibility</button> <button onClick={this.track}>Track</button></ToggleDisplay>
+                <input ref={(input) => { this.usernum = input; }} /> 
                 <ToggleDisplay show={this.props.store.showplans}>
                 <p> Congrats !! You are eligible to port to a new operator</p>
                 Please select a plan and submit:</ToggleDisplay> 

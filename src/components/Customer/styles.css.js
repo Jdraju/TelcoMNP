@@ -28,8 +28,8 @@ customerDetails:{
     width:'97%',
     margin:'2%',
     padding:'10px',
+},
+customerInp:{
+    width:'300px',
 }
-
-
-
 })
