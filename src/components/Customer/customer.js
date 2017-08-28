@@ -79,12 +79,31 @@ this.setState({ value: e.target.value });
     this.props.store.mnpexits=false;;
     this.props.store.nomnp=false;
     this.props.store.useracc=false;
+    this.props.store.userfail=false;
+    this.props.store.mnpcomplete=false;
 
    }
 
 
-     userAccepts=() => {
-     this.props.store.useraccepts(this.mnprecid);
+     userAccepts=async() => {
+     let a = await this.props.store.useraccepts(this.mnprecid);
+     
+     let aaa= await this.props.store.mnpExitsCheck(this.usernum.value);
+    console.log(aaa);
+   this.resetView();
+   if(aaa){
+    this.props.store.trackmnp=true;
+    this.props.store.mnpcomplete=true;
+    this.mnprecid=this.props.store.data2[0].recid;
+    console.log(this.props.store.data2[0].status);
+    if(this.props.store.data2[0].status=="Recipient Offer"){
+        this.props.store.useracc=true;
+    }
+
+   }
+  else{
+    this.props.store.nomnp=true;
+  } 
    }
 
 
@@ -99,8 +118,16 @@ this.setState({ value: e.target.value });
    
    }
   else{
-   this.props.store.getUserData(this.usernum.value);
+   let a=await this.props.store.getUserData(this.usernum.value);
+   console.log(a);
+   if(a)
+   {
     this.props.store.showplans=true;
+   }
+   else{
+       console.log('User not valid');
+       this.props.store.userfail=true;
+   } 
    console.log('Aman');
   }
 
@@ -153,7 +180,13 @@ this.setState({ value: e.target.value });
 
 
     render() {
-       
+        
+       var alert = {
+            color: 'red',
+           };
+       var good = {
+            color: 'green',
+           };
         return(
 
             
@@ -188,6 +221,11 @@ this.setState({ value: e.target.value });
                   <p>  Below is the Mobile Number Portability request for your number:</p></ToggleDisplay> 
                 <ToggleDisplay show={this.props.store.nomnp}>
                    <p>There is no current Mobile Number Porting Request for this number</p></ToggleDisplay> 
+                <ToggleDisplay show={this.props.store.userfail}>
+                   <center><br/><br/><p style={alert}>Number doesn't exists in Database</p></center></ToggleDisplay>
+                <ToggleDisplay show={this.props.store.mnpcomplete}>
+                   <center><br/><br/><p style={good}>Congrats Your MNP Process is Complete !! You Will Recieve your sim and will be activated.</p></center></ToggleDisplay>  
+               
 
             </div>
 
