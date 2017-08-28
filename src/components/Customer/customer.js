@@ -58,15 +58,25 @@ getInitialState() {
 
 getValidationState() {
     const length = this.state.value.length;
-    if (length == 10) return 'success';
-    else if (length > 10) return 'warning';
-    else if (length > 0) return 'error';
+    if (length == 10){ 
+        this.props.store.textValid=true;
+        console.log("success")
+        return 'success' 
+    }
+    else if (length > 10){
+         this.props.store.textValid=false;
+         return 'warning'
+        }
+    else if (length > 0){
+         this.props.store.textValid=false;
+         return 'error'
+        }
   }
 
 
 handleChange(e) {
 this.setState({ value: e.target.value });
-
+console.log(e.target.value)
 }
 
 
@@ -197,9 +207,9 @@ this.setState({ value: e.target.value });
                  <ToggleDisplay show={!this.props.store.showplans}>
                 <p> To check eligibility, enter your phone number.<br/> During this process you will have to provide additional information to establish your identity.</p>
                 Enter # to check Eligibility:
-                <form className={css(styles.customerInp)}>
+                <form className={css(styles.customerInp)} ref={(input) => { this.usernum = input; }}>
                     <FormGroup
-                    validationState={this.getValidationState()}>
+                    validationState={this.getValidationState}>
                     <FormControl
                         type="text"
                         value={this.state.value}
@@ -209,8 +219,10 @@ this.setState({ value: e.target.value });
                     <FormControl.Feedback />
                     </FormGroup>
                 </form>
-                <button onClick={this.checkEligible}>Check Eligibility</button> <button onClick={this.track}>Track</button></ToggleDisplay>
-                <input ref={(input) => { this.usernum = input; }} /> 
+                <ToggleDisplay show={this.props.store.textValid}> <button onClick={this.checkEligible}>Check Eligibility</button> <button onClick={this.track}>Track</button>
+                </ToggleDisplay>
+                </ToggleDisplay>
+                
                 <ToggleDisplay show={this.props.store.showplans}>
                 <p> Congrats !! You are eligible to port to a new operator</p>
                 Please select a plan and submit:</ToggleDisplay> 
