@@ -122,6 +122,7 @@ onClickProductSelected(cell, row, rowIndex){
                     <TableHeaderColumn dataField='recid' isKey>Record Id</TableHeaderColumn>
                     <TableHeaderColumn dataField='user' >Number</TableHeaderColumn>
                     <TableHeaderColumn dataField='cspnew'>New CSP</TableHeaderColumn>
+                    <TableHeaderColumn dataField='reason'>Reason</TableHeaderColumn>
                     <TableHeaderColumn dataField='plannew'  dataFormat={ nameFormatter.bind(this, 'PlanId') } editable={ { type: 'select', options: { values: planTypes } } }>New Plan</TableHeaderColumn>
                     <TableHeaderColumn dataField='status'>Status</TableHeaderColumn>
                     <TableHeaderColumn dataField='button' dataFormat={this.cellButton.bind(this)}>Action</TableHeaderColumn>

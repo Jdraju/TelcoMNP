@@ -66,6 +66,10 @@ export default class RR4 extends React.Component {
         
     }
 
+    delRecords=()=>{
+      this.store.delMNPRecAll();
+    }
+
     customerF=()=>{
         this.store.showplans=false;
         this.store.data =[];
@@ -148,7 +152,7 @@ export default class RR4 extends React.Component {
                                         <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/Blocks"><RGI/>  Block View</Link></li>
                                     </ul>
                                     <DropdownButton title={<Reset/>} id={"1"}className={css(styles.dropdown)}>
-                                <MenuItem eventKey="1">Reset Demo</MenuItem>
+                                <MenuItem eventKey="1" onClick={this.delRecords}>Reset Demo</MenuItem>
                             </DropdownButton>
                                 </div>
                                 
