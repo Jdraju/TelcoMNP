@@ -59,16 +59,16 @@ getInitialState() {
 getValidationState() {
     const length = this.state.value.length;
     if (length == 10){ 
-        this.props.store.textValid=true;
+       
         console.log("success")
         return 'success' 
     }
     else if (length > 10){
-         this.props.store.textValid=false;
+         
          return 'warning'
         }
     else if (length > 0){
-         this.props.store.textValid=false;
+       
          return 'error'
         }
   }
@@ -77,6 +77,19 @@ getValidationState() {
 handleChange(e) {
 this.setState({ value: e.target.value });
 console.log(e.target.value)
+if ( e.target.value.length == 10){ 
+        this.props.store.textValid=true;
+        console.log("success")
+        
+    }
+    else if ( e.target.value.length > 10){
+         this.props.store.textValid=false;
+       
+        }
+    else if ( e.target.value.length > 0){
+         this.props.store.textValid=false;
+     
+        }
 }
 
 
@@ -209,7 +222,7 @@ console.log(e.target.value)
                 Enter # to check Eligibility:
                 <form className={css(styles.customerInp)} ref={(input) => { this.usernum = input; }}>
                     <FormGroup
-                    validationState={this.getValidationState}>
+                    validationState={this.getValidationState()}>
                     <FormControl
                         type="text"
                         value={this.state.value}
