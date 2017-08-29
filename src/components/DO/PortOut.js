@@ -94,6 +94,7 @@ else{
                     <TableHeaderColumn dataField='recid' isKey>Record Id</TableHeaderColumn>
                     <TableHeaderColumn dataField='user' >Number</TableHeaderColumn>
                     <TableHeaderColumn dataField='cspnew'>New CSP</TableHeaderColumn>
+                    <TableHeaderColumn dataField='starttime'>Create Date</TableHeaderColumn>
                     <TableHeaderColumn dataField='status'>Status</TableHeaderColumn>
                     <TableHeaderColumn dataField='button' dataFormat={this.cellButton.bind(this)}>Action</TableHeaderColumn>
                 </BootstrapTable>

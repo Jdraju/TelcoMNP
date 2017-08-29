@@ -211,9 +211,19 @@ class Store {
 
    userinimnp=async(num,r)=>{
 
-     //var today = new Date();
-     //var date = today.getFullYear()+'-'+(today.getMonth()+2)+'-'+today.getDate();
-     //var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(); 
+     var today = new Date();
+     var dd = today.getDate();
+     var mm = today.getMonth()+1; //January is 0!
+
+     var yyyy = today.getFullYear();
+     if(dd<10){
+          dd='0'+dd;
+      } 
+     if(mm<10){
+          mm='0'+mm;
+      } 
+      var today = mm+'/'+dd+'/'+yyyy;
+      console.log(today);
       let msdata1 = await request
       .get('//172.27.12.46:3000/api/MSISDN/num:'+num);
       let temp = JSON.parse(msdata1.text);
@@ -254,7 +264,7 @@ class Store {
                                 Price: "120$"
                               },
                               reason:r,
-                              starttime:"testtime2",
+                              starttime:today.toString(),
                               status: "User Confirmation"
 
 
