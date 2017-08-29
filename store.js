@@ -35,7 +35,7 @@ class Store {
   @observable regshow2=false;
   @observable regshow3=false;
   @observable regshow4=false;
-  @observable currnum="4696058208";
+  @observable currnum;
   @observable textValid=false;
 
    
@@ -466,6 +466,7 @@ let msdata = await request
    this.regshow3=false;
    this.regshow4=false;
    this.textValid=false;
+   this.currnum="4690001234"
    
   
     //var usernum = document.getElementById('usernum');
