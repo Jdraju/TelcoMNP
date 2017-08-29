@@ -33,6 +33,7 @@ export default class mnpdetails extends Component{
                     <TableHeaderColumn dataField='reason'>Reason</TableHeaderColumn>
                     <TableHeaderColumn dataField='planold' dataFormat={ nameFormatter.bind(this, 'PlanId') }>Old Plan</TableHeaderColumn>
                     <TableHeaderColumn dataField='plannew'  dataFormat={ nameFormatter.bind(this, 'PlanId') }>New Plan</TableHeaderColumn>
+                    <TableHeaderColumn dataField='starttime'>Create Date</TableHeaderColumn>
                     <TableHeaderColumn dataField='status'>Status</TableHeaderColumn>
                    
                 </BootstrapTable>

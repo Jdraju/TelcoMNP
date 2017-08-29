@@ -128,6 +128,7 @@ const planTypes = [ {
                     <TableHeaderColumn dataField='cspnew'>New CSP</TableHeaderColumn>
                     <TableHeaderColumn dataField='reason'>Reason</TableHeaderColumn>
                     <TableHeaderColumn dataField='plannew'  dataFormat={ nameFormatter.bind(this, 'PlanId') } editable={ { type: 'select', options: { values: planTypes } } }>New Plan</TableHeaderColumn>
+                    <TableHeaderColumn dataField='starttime'>Create Date</TableHeaderColumn>
                     <TableHeaderColumn dataField='status'>Status</TableHeaderColumn>
                     <TableHeaderColumn dataField='button' dataFormat={this.cellButton.bind(this)}>Action</TableHeaderColumn>
                 </BootstrapTable>
