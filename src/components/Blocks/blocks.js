@@ -32,21 +32,26 @@ export default class Blocks extends Component{
 
     render() {
         var rows = [];
-
+        var skylightProps = {
+            width:'70vw !important',
+            height:'300px !important',
+            'margin-left': '-38%',
+        }
        
         
         for (var i=0; i < this.props.store.blocks.length; i++) {
             //console.log(this.props.store.blocks[i]);
          //rows.push(<BlockContent  key={i} blockval={this.props.store.blocks[i].transactionId}/>);
-         rows.push(<Button key={i} bsStyle = "success" onClick={this.showBlock.bind(this,i)}>{this.props.store.blocks[i].transactionId}</Button>);
+         rows.push(<div key={i} bsStyle = "success" className={css(styles.blocksB)} onClick={this.showBlock.bind(this,i)}>{this.props.store.blocks[i].transactionId}</div>);
          
            }
 
           return (
           
           <div> {rows}
-          <SkyLight hideOnOverlayClicked ref={(input) => { this.simpleDialog = input; }} title="">
-              <div><JsonTable rows={this.props.store.currblock} /></div>
+
+          <SkyLight hideOnOverlayClicked ref={(input) => { this.simpleDialog = input; }} title="" dialogStyles={skylightProps}>
+              <div  className={css(styles.skyDiv)}> <JsonTable className={css(styles.skyTable)} rows={this.props.store.currblock} /></div>
           </SkyLight>
           </div>
           

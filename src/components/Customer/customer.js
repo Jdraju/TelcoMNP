@@ -233,7 +233,7 @@ if ( e.target.value.length == 10){
                     <FormControl.Feedback />
                     </FormGroup>
                 </form>
-                <ToggleDisplay show={this.props.store.textValid}> <Button onClick={this.checkEligible}>Check Eligibility</Button> <button onClick={this.track}>Track</button>
+                <ToggleDisplay show={this.props.store.textValid}> <Button bsStyle = "success" onClick={this.checkEligible}>Check Eligibility</Button> <Button bsStyle = "info" onClick={this.track}>Track</Button>
                 </ToggleDisplay>
                 </ToggleDisplay>
                 

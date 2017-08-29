@@ -24,7 +24,35 @@ d1:{
 
 },
 
+blocksB:{
+    margin:'10px',
+    backgroundColor: '#36D7B7',
+    boxShadow: '2px 2px 2px #888888',
+    width: '400px',
+    height: '50px',
+    textAlign: 'center',
+    lineHeight: '55px',
+    float: 'left',
+    color:'white',
+},
 
 
+
+skyDiv:{
+    width:'70vw !important',
+    height:'300px !important',
+
+},
+
+skyTable:{
+    textTransform:'uppercase',
+    border: 'solid',
+    margin: '5%',
+
+},
+'tr.skyTable':{
+border:'solid',
+backgroundColor:'red'
+}
 
 })
