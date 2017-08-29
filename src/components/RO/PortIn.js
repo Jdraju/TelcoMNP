@@ -75,13 +75,14 @@ onClickProductSelected(cell, row, rowIndex){
           let plan='';
       console.log(row['user']+'  '+row['recid']);
       if((typeof row['plannew'])!='string'){
+          console.log("object it is!!");
         plan=row['plannew']['PlanId'];
        }
        else{
            plan=row['plannew'];
        }
 
-      popup(row['user'],row['recid'],row['plannew']);
+      popup(row['user'],row['recid'],plan);
     }
     
         
