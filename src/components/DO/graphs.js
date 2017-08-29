@@ -6,26 +6,26 @@ import { Button } from 'react-bootstrap';
 //import img1 from './Inbound.svg'
 
 var avgs = [{
-      num: 12144567890,
-      csp: "ABC",
+      num: 2144567891,
+      csp: "XYZ",
+      averageT:"1 Days",
+      reason:"Pricing"
+  },
+  {
+      num: 2144567892,
+      csp: "XYZ",
+      averageT:"1 Days",
+      reason:"Pricing"
+  },
+  {
+      num: 12144567893,
+      csp: "XYZ",
       averageT:"2 Days",
       reason:"Service Quality"
   },
   {
-      num: 12144567890,
-      csp: "ABC",
-      averageT:"2 Days",
-      reason:"Service Quality"
-  },
-  {
-      num: 12144567890,
-      csp: "ABC",
-      averageT:"2 Days",
-      reason:"Service Quality"
-  },
-  {
-      num: 12144567890,
-      csp: "ABC",
+      num: 2144567894,
+      csp: "XYZ",
       averageT:"2 Days",
       reason:"Service Quality"
   }

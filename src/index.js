@@ -145,8 +145,8 @@ export default class RR4 extends React.Component {
                                     <ul className={css(styles.menuBar)}>
                                         <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/"><HomeI/>  Home</Link></li>
                                         <li className={css(styles.menuItem)} onClick={this.customerF}><Link className={css(styles.menuIcon)} to="/Customer"><CustI/>  Customer</Link></li>
-                                        <li className={css(styles.menuItem)} onClick={this.donorMNPGet} ><Link className={css(styles.menuIcon)} to="/DO"><DOI/>  Donor CSP</Link></li>
-                                        <li className={css(styles.menuItem)} onClick={this.recepMNPGet}><Link className={css(styles.menuIcon)} to="/RO"><ROI/>  Recipient CSP</Link></li>
+                                        <li className={css(styles.menuItem)} onClick={this.donorMNPGet} ><Link className={css(styles.menuIcon)} to="/DO"><DOI/>ABC CSP</Link></li>
+                                        <li className={css(styles.menuItem)} onClick={this.recepMNPGet}><Link className={css(styles.menuIcon)} to="/RO"><ROI/>  XYZ CSP</Link></li>
                                         <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/Regulator"><RGI/>  Regulator</Link></li>
                                         <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/SimInsert"><RGI/>  SimInsert</Link></li>
                                         <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/Blocks"><RGI/>  Block View</Link></li>

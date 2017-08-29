@@ -132,7 +132,7 @@ onClickProductSelected(cell, row, rowIndex){
 
                 <SkyLight hideOnOverlayClicked ref={(input) => { this.simpleDialog = input; }} title="">
                     <Ticket/>
-                <Button bsStyle = "success" onClick={this.recepApprove}> Approve</Button>
+                <Button bsStyle = "success" onClick={this.recepApprove}> Accept</Button>
                 </SkyLight>
 
             </div>     
