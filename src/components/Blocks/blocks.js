@@ -51,7 +51,7 @@ export default class Blocks extends Component{
           <div> {rows}
 
           <SkyLight hideOnOverlayClicked ref={(input) => { this.simpleDialog = input; }} title="" dialogStyles={skylightProps}>
-              <div  className={css(styles.skyDiv)}><JsonTable  className={css(styles.skyTable)} rows={this.props.store.currblock} /></div>
+              <div  className={css(styles.skyDiv)}> <JsonTable className={css(styles.skyTable)} rows={this.props.store.currblock} /></div>
           </SkyLight>
           </div>
           

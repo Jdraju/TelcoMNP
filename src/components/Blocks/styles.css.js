@@ -43,17 +43,16 @@ skyDiv:{
     height:'300px !important',
 
 },
+
 skyTable:{
     textTransform:'uppercase',
     border: 'solid',
     margin: '5%',
-    'table, th, td':{
-        border: '1px solid black'
-    }
 
 },
-
-
-
+'tr.skyTable':{
+border:'solid',
+backgroundColor:'red'
+}
 
 })
