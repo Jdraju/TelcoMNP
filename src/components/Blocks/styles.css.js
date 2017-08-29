@@ -39,15 +39,18 @@ blocksB:{
 
 
 skyDiv:{
-    width:'70vw !important',
-    height:'300px !important',
-
+    width:'80vw !important',
+    height:'200px !important',
 },
 
 skyTable:{
     textTransform:'uppercase',
     border: 'solid',
-    margin: '5%',
+    margin: '2%',
+    padding:'10px',
+    width:'95%',
+    height:'100px'
+    
 
 },
 'tr.skyTable':{

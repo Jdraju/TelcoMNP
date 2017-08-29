@@ -78,5 +78,9 @@ donorBox:{
             float:'left',
             //margin: '5px',
         },
+        buttonSky:{
+            paddingLeft: '45%',
+            paddingTop: '5%',
+        }
 
 })

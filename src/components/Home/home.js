@@ -12,10 +12,10 @@ class Home extends Component{
     render() {
         return(
         <div className={css(styles.titlesA)}>
-            <h3>Welcome to the MNP with Blockchain Demo: </h3>
+            <h3>Welcome to the MNP with Blockchain: </h3>
 
             <div className={css(styles.paraA)}>
-                This demo showcases the use of Blockchain within the Mobile Number Portability process.
+                This solution showcases the use of Blockchain within the Mobile Number Portability process.
             </div>
 
         </div>

@@ -41,7 +41,7 @@ class recipient extends Component{
     render() {
         return(
             <div className={css(styles.recipientBox)}>
-                <h2>Recipient Operator View</h2>
+                <h2>XYZ View</h2>
                 <div className={css(styles.POR)}>
                     <PortOut/>
                 </div>

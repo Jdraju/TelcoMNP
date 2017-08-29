@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-//import { css } from 'aphrodite'
+import { css } from 'aphrodite'
+import { styles } from './styles.css'
 import { Button } from 'react-bootstrap';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import { PureComponent } from 'react';
@@ -101,7 +102,9 @@ else{
 
                 <SkyLight hideOnOverlayClicked ref={(input) => { this.simpleDialog = input; }} title="">
                     <Ticket/>
-                <Button bsStyle = "success" onClick={this.donorApprove}> Approve</Button>
+                    <div className={css(styles.buttonSky)}>
+                        <Button bsStyle = "success" onClick={this.donorApprove}> Approve</Button>
+                    </div>
                 </SkyLight>
 
             </div>     
