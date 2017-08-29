@@ -6,36 +6,36 @@ import {Checkbox, CheckboxGroup} from 'react-checkbox-group';
 
 
 var products = [{
-      planID: "PlanB",
-      serviceValidity: "unlimited",
-      talktimeBalance: "unlimmited",
+      planID: "Plan A",
+      serviceValidity: "Unlimited",
+      talktimeBalance: "Unlimmited",
       sMSbalance: "Unlimmited",
       dataBalance: "2GB",
       price: "$120"
   }, 
   {
-      planID: 2,
-      serviceValidity: "Plan1",
-      talktimeBalance: "unlimmited",
-      sMSbalance: "Unlimmited",
-      dataBalance: "2GB",
-      price: "$120"
+      planID: 'Plan B',
+      serviceValidity: "Unlimited",
+      talktimeBalance: "Unlimited",
+      sMSbalance: "Unlimited",
+      dataBalance: "5GB",
+      price: "$150"
   }, 
   {
-      planID: 3,
-      serviceValidity: "Plan1",
-      talktimeBalance: "unlimmited",
-      sMSbalance: "Unlimmited",
-      dataBalance: "2GB",
-      price: "$120"
+      planID: 'Plan C',
+      serviceValidity: "Unlimited",
+      talktimeBalance: "Unlimited",
+      sMSbalance: "Unlimited",
+      dataBalance: "10GB",
+      price: "$170"
   }, 
   {
-      planID: 4,
-      serviceValidity: "Plan1",
-      talktimeBalance: "unlimmited",
-      sMSbalance: "Unlimmited",
-      dataBalance: "2GB",
-      price: "$120"
+      planID: "Plan D",
+      serviceValidity: "Unlimited",
+      talktimeBalance: "Unlimited",
+      sMSbalance: "Unlimited",
+      dataBalance: "1GB",
+      price: "$90"
   }, 
   ]
 
