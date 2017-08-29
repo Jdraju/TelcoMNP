@@ -220,11 +220,12 @@ if ( e.target.value.length == 10){
                  <ToggleDisplay show={!this.props.store.showplans}>
                 <p> To check eligibility, enter your phone number.<br/> During this process you will have to provide additional information to establish your identity.</p>
                 Enter # to check Eligibility:
-                <form className={css(styles.customerInp)} ref={(input) => { this.usernum = input; }}>
+                <form className={css(styles.customerInp)}>
                     <FormGroup
                     validationState={this.getValidationState()}>
                     <FormControl
                         type="text"
+                        inputRef={(ref) => { this.usernum = ref; }}
                         value={this.state.value}
                         placeholder="Enter Customer Phone Number"
                         onChange={this.handleChange.bind(this)}
@@ -232,7 +233,7 @@ if ( e.target.value.length == 10){
                     <FormControl.Feedback />
                     </FormGroup>
                 </form>
-                <ToggleDisplay show={this.props.store.textValid}> <button onClick={this.checkEligible}>Check Eligibility</button> <button onClick={this.track}>Track</button>
+                <ToggleDisplay show={this.props.store.textValid}> <Button onClick={this.checkEligible}>Check Eligibility</Button> <button onClick={this.track}>Track</button>
                 </ToggleDisplay>
                 </ToggleDisplay>
                 
