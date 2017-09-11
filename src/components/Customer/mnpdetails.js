@@ -26,7 +26,7 @@ export default class mnpdetails extends Component{
         return(
             <div>
                 <BootstrapTable data={ this.props.store.data2 } striped hover condensed>
-                     <TableHeaderColumn dataField='recid'>Customer Name</TableHeaderColumn>
+                     <TableHeaderColumn dataField='recid'>MNP Record</TableHeaderColumn>
                     <TableHeaderColumn dataField='user' isKey>Number</TableHeaderColumn>
                     <TableHeaderColumn dataField='cspold'>Current CSP</TableHeaderColumn>
                     <TableHeaderColumn dataField='cspnew'>New CSP</TableHeaderColumn>

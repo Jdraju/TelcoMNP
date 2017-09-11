@@ -130,7 +130,7 @@ class Store {
         {
           console.log("match");
           this.data2R=[];
-          this.data2R = this.data2.concat(temp);
+          this.data2R = this.data2R.concat(temp);
           this.mnpMatch=true;
           return true;
         }
@@ -466,7 +466,7 @@ let msdata = await request
    this.regshow3=false;
    this.regshow4=false;
    this.textValid=false;
-   this.currnum="4690001234"
+   this.currnum="4690001234";
    
   
     //var usernum = document.getElementById('usernum');

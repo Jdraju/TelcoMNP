@@ -66,6 +66,21 @@ export default class RR4 extends React.Component {
         
     }
 
+    reset=()=>{
+        this.store.showplans=false;
+   this.store.trackmnp=false;
+   this.store.mnpexits=false;
+   this.store.nomnp=false;
+   this.store.useracc=false;
+   this.store.userfail=false;
+   this.store.mnpcomplete=false;
+   this.store.regshow1=false;
+   this.store.regshow2=false;
+   this.store.regshow3=false;
+   this.store.regshow4=false;
+   this.store.textValid=false;
+    }
+
     delRecords=()=>{
       this.store.delMNPRecAll();
     }
@@ -73,6 +88,7 @@ export default class RR4 extends React.Component {
     customerF=()=>{
         this.store.showplans=false;
         this.store.data =[];
+         this.reset;
     }
     donorMNPGet=() => {
        this.store.getMNPRecAll('donor');
@@ -147,7 +163,7 @@ export default class RR4 extends React.Component {
                                         <li className={css(styles.menuItem)} onClick={this.customerF}><Link className={css(styles.menuIcon)} to="/Customer"><CustI/>  Customer</Link></li>
                                         <li className={css(styles.menuItem)} onClick={this.donorMNPGet} ><Link className={css(styles.menuIcon)} to="/DO"><DOI/>ABC CSP</Link></li>
                                         <li className={css(styles.menuItem)} onClick={this.recepMNPGet}><Link className={css(styles.menuIcon)} to="/RO"><ROI/>  XYZ CSP</Link></li>
-                                        <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/Regulator"><RGI/>  Regulator</Link></li>
+                                        <li className={css(styles.menuItem)} onClick={this.reset}><Link className={css(styles.menuIcon)} to="/Regulator"><RGI/>  Regulator</Link></li>
                                         <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/SimInsert"><RGI/>  SimInsert</Link></li>
                                         <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/Blocks"><RGI/>  Block View</Link></li>
                                     </ul>

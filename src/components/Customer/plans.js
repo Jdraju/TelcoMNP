@@ -9,7 +9,7 @@ var products = [{
       planID: "Plan A",
       serviceValidity: "Unlimited",
       talktimeBalance: "Unlimmited",
-      sMSbalance: "Unlimmited",
+      sMSbalance: "Unlimited",
       dataBalance: "2GB",
       price: "$120"
   }, 
