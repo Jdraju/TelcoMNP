@@ -146,6 +146,7 @@ if ( e.target.value.length == 10){
    if(a)
    {
     this.props.store.showplans=true;
+    this.props.store.smsimg="../../media/sms2.png";
    }
    else{
        console.log('User not valid');

@@ -22,6 +22,7 @@ class Store {
   @observable blocks=[];
    @observable currblock=[];
   @observable sigimg="../../media/nosignal.png";
+  @observable smsimg="../../media/sms1.png";
 
 
   @observable showplans=false;
@@ -285,6 +286,8 @@ class Store {
              t.planold=t.planold.PlanId;
          }
       this.blocks=this.blocks.concat(t);
+
+      this.smsimg="../../media/sms3.png";
    
      return 1
    }
@@ -355,7 +358,7 @@ let msdata = await request
       t.asset=t.asset.split('#')[1];
       this.blocks=this.blocks.concat(t);
    
-
+      this.smsimg="../../media/sms4.png";
      return 1
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -391,7 +394,8 @@ let msdata = await request
              t.plannew=t.plannew.PlanId;
          }
       this.blocks=this.blocks.concat(t);
-   
+      
+      this.smsimg="../../media/sms5.png";
 
      return 1
 }
@@ -413,6 +417,9 @@ let msdata = await request
      t.$class=t.$class.split('.')[3];
       t.asset=t.asset.split('#')[1];
       this.blocks=this.blocks.concat(t);
+
+      this.smsimg="../../media/sms6.png";
+
      return 1
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -448,6 +455,9 @@ let msdata = await request
       t.$class=t.$class.split('.')[3];
       t.asset=t.asset.split('#')[1];
       this.blocks=this.blocks.concat(t);
+
+      this.smsimg="../../media/sms7.png";
+
      return 1
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////

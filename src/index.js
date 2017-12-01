@@ -27,6 +27,7 @@ import Recipent from './components/RO/recipient';
 import Regulator from './components/Regulator/regulator';
 import Home from './components/Home/home';
 import SimInsert from './components/SimInsert/sim';
+import SMSUpdates from './components/smsupdates/sms';
 import Load from './components/Loading/loading';
 import Blocks from './components/Blocks/blocks';
 
@@ -121,6 +122,10 @@ export default class RR4 extends React.Component {
         return <SimInsert />;
     }
 
+    renderSMSUpdates = () => {
+        return <SMSUpdates />;
+    }
+
     renderLoad = () => {
         return <Load />;
     }
@@ -165,6 +170,7 @@ export default class RR4 extends React.Component {
                                         <li className={css(styles.menuItem)} onClick={this.recepMNPGet}><Link className={css(styles.menuIcon)} to="/RO"><ROI/>  XYZ CSP</Link></li>
                                         <li className={css(styles.menuItem)} onClick={this.reset}><Link className={css(styles.menuIcon)} to="/Regulator"><RGI/>  Regulator</Link></li>
                                         <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/SimInsert"><RGI/>  SimInsert</Link></li>
+                                        <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/SMSUpdates"><RGI/>  SMSUpdates</Link></li>
                                         <li className={css(styles.menuItem)}><Link className={css(styles.menuIcon)} to="/Blocks"><RGI/>  Block View</Link></li>
                                     </ul>
                                     <DropdownButton title={<Reset/>} id={"1"}className={css(styles.dropdown)}>
@@ -179,6 +185,7 @@ export default class RR4 extends React.Component {
                                     <Route path ="/RO" render={this.renderRecipent}/>
                                     <Route path ="/Regulator" render={this.renderRegulator}/>
                                     <Route path ="/SimInsert" render={this.renderSimInsert}/>
+                                    <Route path ="/SMSUpdates" render={this.renderSMSUpdates}/>
                                     <Route path ="/Loading" render={this.renderLoad}/>
                                     <Route path ="/Blocks" render={this.renderBlocks}/>
                                 

@@ -1,6 +1,6 @@
 module.exports = {
   entry: [
-    './src/index.js'
+    './src/index.js',
   ],
   output: {
     path: __dirname,
@@ -25,6 +25,7 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
+    port:'8080',
     contentBase: './'
   }
 };
